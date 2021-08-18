@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SugarFixed</title>
+
+    <!-- Compiled and minified CSS -->
+    <!-- Materialze-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Materialize icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper" style=" background-color: #a1f1dd;">
+                <a href="./" class="brand-logo" style="height: 100%;">
+                    <i class="material-icons" style="color:#ab72ec; font-size: 40px; height: 100%;padding-top: 5px; padding-left: 20px;" >cake</i>
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#">SugarFixed</a></li>
+                </ul>
+            </div>
+        </nav>
+                
+    </header>
+    <main>
+
+        <div class="container center-align">
+            <h1 class="title">SugarFixed</h1>
+            <div class="row">
+                <p class="flow-text mainText">Home Page</p>
+            </div>
+
+            <!-- CARDS-->
+            <div class="row" id="card-section">
+
+                <!-- ABOUT ME -->
+                <div class="col s12 l6 center-align">
+                  <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                      <img class="activator" src="images/lollipop.jpg">
+                    </div>
+                    <div class="card-content">
+                      <span class="card-title grey-text text-darken-4">SugarFixed</span>
+                      <a class="waves-effect waves-light btn activator">About</a>
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4">More Info<i class="material-icons right">close</i></span>
+                      <p class="card-text">Some info</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- WHAT BOOTS -->
+                <div class="col s12 l6 center-align">
+                    <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="images/donut.jpg">
+                      </div>
+                      <div class="card-content">
+                        <span class="card-title grey-text text-darken-4">SugarFixed</span>
+                        <p>Description</p>
+                        <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1">Try It Out</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- MODAL -->
+        <!-- <div id="modal1" class="modal modal-fixed-footer">
+            <div class="row modal-content center-align">
+                <h1>Upload Image (.jpg or .png)</h1>
+                <form class="col s12" action="api/endpoint" method="post" enctype="multipart/form-data">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="file" accept=".jpg,.png" name="img" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input class="waves-effect waves-light btn" type="submit" value="upload">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div> -->
+
+    </main>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2021 Copyright SugarFixed
+            </div>
+        </div>
+    </footer>
+
+    <!-- socket IO Served by the server -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>

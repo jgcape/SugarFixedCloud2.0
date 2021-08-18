@@ -1,0 +1,27 @@
+{
+  "name": "sugarfixed",
+  "version": "1.0.0",
+  "description": "App to identify how many sugars from a photo of an ingredient list",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/athletedecoded/sugarfixed.git"
+  },
+  "author": "Kahlia Hogg, Julian Cape, Rahul Samanta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/athletedecoded/sugarfixed/issues"
+  },
+  "homepage": "https://github.com/athletedecoded/sugarfixed#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^4.1.0",
+    "node": "^16.6.1",
+    "tesseract.js": "^2.1.5"
+  }
+}
