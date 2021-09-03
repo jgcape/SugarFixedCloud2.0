@@ -1,10 +1,9 @@
 # About SugarFixed
 
-SugarFixed uses Tesseract.js OCR to identify how many of the 50+ different types of sugar are hiding in your food!
+SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API to identify how many of the 50+ different types of sugar are hiding in your food!
 
 # Dependencies
 * nodemon
-* tesseract.js
 
 ## Run
 1. Install package.json dependencies
