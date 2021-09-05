@@ -68,7 +68,7 @@
                       <div class="card-content">
                         <span class="card-title grey-text text-darken-4">SugarFixed</span>
                         <p>Description</p>
-                        <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1">Try It Out</a>
+                        <a class="waves-effect waves-light btn" id="labelForm">Try It Out</a>
                       </div>
                     </div>
                 </div>
@@ -77,25 +77,29 @@
 
 
         <!-- MODAL -->
-        <!-- <div id="modal1" class="modal modal-fixed-footer">
+        <div id="modal1" class="modal modal-fixed-footer">
             <div class="row modal-content center-align">
                 <h1>Upload Image (.jpg or .png)</h1>
                 <form class="col s12" action="api/endpoint" method="post" enctype="multipart/form-data">
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="file" accept=".jpg,.png" name="img" >
+                            <!-- <input type="file"  name="img" > -->
+                            <video id="video" width="540" height="380" autoplay></video>
+                            
+                            <canvas id="canvas" width="440" height="380"></canvas>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input class="waves-effect waves-light btn" type="submit" value="upload">
+                            <!-- <input class="waves-effect waves-light btn" type="submit" value="upload"> -->
+                            <button class="waves-effect waves-light btn" id="snap">Snap Photo</button>
                         </div>
                     </div>
 
                 </form>
             </div>
-        </div> -->
+        </div>
 
     </main>
     <footer class="page-footer">

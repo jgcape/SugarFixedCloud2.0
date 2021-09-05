@@ -4,7 +4,7 @@ let express = require("express");
 let app = express();
 
 let http = require('http').createServer(app);
-// let io = require('socket.io')(http);
+let io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 const mongoClient = require('mongodb').MongoClient;
 
