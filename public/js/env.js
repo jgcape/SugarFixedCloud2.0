@@ -27,6 +27,7 @@ const uploadImg = (formData) => {
         processData:false,
         success: (result) => {
             alert(result.message)
+            location.reload();
         },
         error: (err) => {
             alert(err.message);
@@ -37,12 +38,11 @@ const uploadImg = (formData) => {
 const submitImg = () => {
     canvas.toBlob(function(blob) {
         const formData = new FormData();
-        formData.append('label', blob, 'label.png');
-      
-        // Post via axios or other transport method
+        formData.append('label', blob, 'label.jpg');
         console.log(formData);
         uploadImg(formData);
-    });
+    }, 
+    'image/jpeg');
 }
 
 $(document).ready(function(){

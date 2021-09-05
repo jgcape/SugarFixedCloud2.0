@@ -22,6 +22,10 @@ var upload = multer({ storage: storage })
 
 router.post('/', upload.single('label'), (req, res) => {
     console.log(req.file)
+    res.json({
+        statusCode:200,
+        message: "Success - image uploaded"
+    })
     // Controllers.visionController.getOCR(req.file, res)
 })
 
