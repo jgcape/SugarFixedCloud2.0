@@ -5,6 +5,10 @@ let app = express();
 
 let http = require('http').createServer(app);
 let io = require('socket.io')(http);
+
+let visionRoute = require('./routes/vision');
+app.use('/api/vision', visionRoute)
+
 const bodyParser = require('body-parser');
 const mongoClient = require('mongodb').MongoClient;
 

@@ -1,6 +1,9 @@
-const allowCamera = () => {
-    var video = document.getElementById('video'); // Keep DOM reference, jquery doesn't work
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext('2d');
+const video = document.getElementById('video');
 
+const allowCamera = () => {
+    // var video = document.getElementById('video'); // Keep DOM reference, jquery doesn't work
     // Get access to the camera
     if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
@@ -11,40 +14,35 @@ const allowCamera = () => {
 }
 
 const takePhoto = () => {
-    var canvas = document.getElementById('canvas');
-    var context = canvas.getContext('2d');
-    var video = document.getElementById('video');
     context.drawImage(video, 0, 0, 640, 480);
-    var img = canvas.toBlob()
 }
 
-const uploadImage = (bootData) => {
+const uploadImg = (formData) => {
     $.ajax({
         enctype:'multipart/form-data',
-        url: '/api/boots',
-        data: bootData,
+        url: '/api/vision',
+        data: formData,
         type: 'POST',
         contentType:false,
         processData:false,
         success: (result) => {
-            $('#modal1').modal('close')
-            $('#queryBoot').attr("src", result.imgURL).toggle(true);
-            showResults(result.preds);
+            alert(result.message)
         },
         error: (err) => {
             alert(err.message);
-            // location.reload();
         }
     })
 }
 
 const submitImg = () => {
-    // let labelImg = $('#canvas')canvas.toBlob;
-    var formData = new FormData();
-    formData.append("bootImg", bootImg);
-
-    console.log("Form Data Submitted: ", formData);
-    uploadBoot(formData);
+    canvas.toBlob(function(blob) {
+        const formData = new FormData();
+        formData.append('label', blob, 'label.png');
+      
+        // Post via axios or other transport method
+        console.log(formData);
+        uploadImg(formData);
+    });
 }
 
 $(document).ready(function(){
