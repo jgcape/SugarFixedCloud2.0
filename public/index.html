@@ -79,24 +79,23 @@
         <!-- MODAL -->
         <div id="modal1" class="modal modal-fixed-footer">
             <div class="row modal-content center-align">
-                <h1>Upload Image (.jpg or .png)</h1>
-                <form class="col s12" action="api/endpoint" method="post" enctype="multipart/form-data">
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <!-- <input type="file"  name="img" > -->
-                            <video id="video" width="540" height="380" autoplay></video>
-                            
-                            <canvas id="canvas" width="440" height="380"></canvas>
-                        </div>
+                <h1>Snap your Label</h1>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <!-- <input type="file"  name="img" > -->
+                        <video id="video" width="540" height="380" autoplay></video>
+                        <button class="waves-effect waves-light btn" id="snap">Snap Photo</button>
+                        <h4>Preview</h4>
+                        <canvas id="canvas" width="440" height="380"></canvas>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <!-- <input class="waves-effect waves-light btn" type="submit" value="upload"> -->
-                            <button class="waves-effect waves-light btn" id="snap">Snap Photo</button>
-                        </div>
-                    </div>
+                </div>
 
+                <form class="col s12">
+                    <div class="row">
+						<div class="input-field col s12">
+							<a class="waves-effect waves-light btn" id="formSubmit">Submit Image</a>
+						</div>
+					</div>
                 </form>
             </div>
         </div>
