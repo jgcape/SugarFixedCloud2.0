@@ -1,3 +1,4 @@
 module.exports={
-    visionController:require('./visionController')
+    visionController:require('./visionController'),
+    sugarsController:require('./sugarsController')
 }

@@ -26,7 +26,7 @@ router.post('/', upload.single('label'), (req, res) => {
         statusCode:200,
         message: "Success - image uploaded"
     })
-    // Controllers.visionController.getOCR(req.file, res)
+    // Controllers.visionController.processLabel(req.file, res)
 })
 
 
