@@ -13,13 +13,16 @@
     <!-- Compiled and minified CSS -->
     
     <!-- Materialze-->
-    <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="/css/styles.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="/css/styles.css" type="text/css" rel="stylesheet" media="screen,projection" /> -->
     <!--Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.css">
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <link rel="icon" href="/images/camera-icon.png" type="image/x-icon">
     <link rel="shortcut icon" href="/images/camera-icon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
     <!-- Custom Style Sheet-->
     <link href="css/styles.css" rel="stylesheet">
@@ -54,10 +57,13 @@
             <br><br>
             <div class="row center">
                 <div class="container ">
-                    <div class="camera" id="camera">
-                        <video id="video" width="550" height="392" poster="/images/camera.jpg" autoplay></video>
+                    <div class="camera" id="camera">                        
+                        <video class="video"id="video" width="550" height="392" poster="/images/camera.jpg" autoplay onplay="resizeCanvas(this)"></video>
+                        <canvas class="canvas" id="canvas" width="550" height="392" ></canvas>
                         <div class="loadCamera">
-                            <button id="loadCamera" class="waves-effect waves-light btn loadCamera-button btn-large"><i
+                            <button id="loadCamera" onclick="allowCamera()" class="waves-effect waves-light loadCamera-button btn-large"><i
+                                class="material-icons left">photo_camera</i>Open Camera</button>
+                            <button id="loadCamera" onclick="takePhoto()" class="waves-effect waves-light loadCamera-button btn-large"><i
                                     class="material-icons left">camera</i>Scan Label</button>
                         </div>
                     </div>
@@ -79,9 +85,7 @@
                             <h5 class="center">How does it work?</h5>
 
                             <p class="light">SugarFixed utilises the latest AI character recognition algorithms to
-                                identify
-                                the sugars
-                                that are hiding in your food.
+                                identify the sugars that are hiding in your food.
                             </p>
                         </div>
                     </div>
@@ -120,35 +124,17 @@
 
 
         <footer class="page-footer" id="myFooter">
-
-
             <div class="footer-copyright">
                 <div class="container" id="copyright">
                     © 2021 SugarFixed
-                </div>
-                <a class="google">Powered
-                    by Google Vision</a>
+                </div>             
 
-                <img class="right" src="/images/google-vision-ai.png">
+                
             </div>
         </footer>
-        <!-- Modal -->
-<div id="myModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="myModalLabel">Modal header</h3>
-    </div>
-    <div class="modal-body">
-      <p>One fine body…</p>
-    </div>
-    <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      <button class="btn btn-primary">Save changes</button>
-    </div>
-  </div>
 
         <!-- socket IO Served by the server -->
-        <script src="/socket.io/socket.io.js"></script>
+        <!-- <script src="/socket.io/socket.io.js"></script> -->
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -157,10 +143,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
-        <script src="js/materialize.js"></script>
-        <script src="js/init.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
+       
         <script src="js/scripts.js"></script>
 
 </body>

@@ -47,6 +47,7 @@ body {
   background-color: white;  
  
 }
+
 .fa {
   color: #bd8497;
 }
@@ -73,5 +74,9 @@ body {
 .loadCamera-button:visited{
   background-color: #bd8497;
 }
-
+.canvas {
+  
+  z-index: 10;
+  background-color:rgba(255,0,0,0.5);
+}
   

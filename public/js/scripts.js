@@ -1,23 +1,14 @@
-/*if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
-    console.log("Let's get this party started")
-}
 
-Request camera access from user.
-navigator.mediaDevices.getUserMedia({ video: true })
-$('#PhotoButton').click(function () {
-    $('#PhotoPicker').trigger('click');
-    return false;
-});
+(function ($) {
+    $(function () {
 
-$('#PhotoPicker').on('change', function (e) {
-    e.preventDefault();
-    if (this.files.length === 0) return;
-    var imageFile = this.files[0];
+        $('.button-collapse').sideNav();
 
-}); */
+    });
+})(jQuery); // end of jQuery name space
 
 const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
+//const context = canvas.getContext('2d');
 const video = document.getElementById('video');
 
 const allowCamera = () => {
@@ -27,12 +18,17 @@ const allowCamera = () => {
         navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
             video.srcObject = stream;
             video.play();
+
         })
     };
 }
 
 const takePhoto = () => {
-    context.drawImage(video, 0, 0, 640, 480);
+    
+    const context = canvas.getContext("2d");    
+    context.drawImage(video, 0, 0, 550, 392);  
+    $(".video").toggle("off");
+    $(".canvas").toggle("on");  
 }
 
 const uploadImg = (formData) => {
@@ -64,17 +60,12 @@ const submitImg = () => {
 }
 
 $(document).ready(function () {
-    console.log('Ready');
-    $("#loadCamera").click(() => {
-        allowCamera();
-    })
+    console.log('Ready');    
     $('.modal').modal();
-
-
-
-
-
-
+    $('.canvas').toggle("off");
+    $("#myModal").click(() => {
+        $('.modal').modal('open');
+    })
     $('#snap').click(() => {
         takePhoto()
     });
@@ -85,7 +76,17 @@ $(document).ready(function () {
 
 
 });
-
+/*function resizeCanvas(element) {
+    var rect = video.getBoundingClientRect();
+    var w = element.offsetWidth;
+    var h = element.offsetHeight;
+    var x = rect.x;
+    var cv = document.getElementById("canvas");
+    cv.width = w;
+    cv.height = h;
+    cv.style.left = x;
+    
+}*/
 (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
         (i[r].q = i[r].q || []).push(arguments)
