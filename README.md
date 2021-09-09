@@ -16,5 +16,10 @@ SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API
 
 3. Navigate to localhost:8080
 
+## Authors
+Julian Cape
+Kahlia Hogg
+Rahul Samanta
+
 ## Licence
 MIT 2021
