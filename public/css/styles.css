@@ -1,69 +1,77 @@
-main {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    text-align: center;
-  }
-
-.main-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
+.icon-block {
+  padding: 0 15px;
 }
+.brand-logo{
+  height: 100%;
+  font-size: 100px;
+  padding-left: 50px;
+  
+}
+
+.container{
+  height: 100%;
+  position: relative;
+}
+.nav-wrapper{
+  font-size:large;
+background-color: #bd8497;
+padding-left: 20px;
+}
+
+#myFooter {
+  background-color: #bd8497;  
+  font-size: large;
+  color: white;
+  
+}
+#copyright{
+  color: white;  
+}
+
+
+
+
 body {
-  display: flex;
-  height:100%;
+  display: flex;  
   flex-direction: column;
   background-color: #d6c9b0 ;
   background-size: contain;
   
 }
-
-.camera{
-    position: fixed;
-    top: 50%;
-    left: 50%;  
-    width: 580px;     
-    transform: translate(-50%, -50%);     
-    border: 10px solid white;
-    border-radius: 10px;
-    background-color: white;
-    margin: 0;
-}
-
-
-
-.brand-logo{
-    height: 100%;
-    font-size: 100px;
-}
-
-.material-icons{
-    color:white; 
-    font-size: large; 
-    height: 100%;   
-    padding-left: 20px;
-
-}
-
-.nav-wrapper{
-    font-size:large;
-  background-color: #bd8497;
-}
-
-
-.page-footer{
-  background-color: #bd8497;
-     position: fixed;
-    height: 50px;   
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;
-}
-
-
-  
-
+.camera{  
+  width: fit-content;
+  margin-left: auto;
+  margin-right:auto;
+  border: 10px solid white;
+  border-radius: 10px;
+  background-color: white;  
  
+}
+.fa {
+  color: #bd8497;
+}
+.fas {
+  color: #bd8497;
+}
+
+.features{
+  font-size: large;
+}
+.loadCamera-button {
+  background-color: #bd8497; 
+  font-size: large;  
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.loadCamera-button:hover {
+  background-color: #d6c9b0
+}
+.loadCamera-button:focus{
+  background-color: #bd8497;
+}
+
+.loadCamera-button:visited{
+  background-color: #bd8497;
+}
+
   

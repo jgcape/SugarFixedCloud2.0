@@ -2,97 +2,168 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SugarFixed</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+
+    <title>SugarFixed Home Page</title>
     <meta property="og:title" content="SugarFixed home page">
     <meta property="og:type" content="website">
     <meta property="og:description" content="Home page for food label reading sugar identification application.">
 
     <!-- Compiled and minified CSS -->
+    
     <!-- Materialze-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Materialize icons-->
+    <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="/css/styles.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <!--Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="icon" href="/images/camera-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/camera-icon.png" type="image/x-icon">
 
+    <!-- Custom Style Sheet-->
     <link href="css/styles.css" rel="stylesheet">
+
+
 
 </head>
 
+
 <body>
-    <header>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="./" class="brand-logo">
-                    <i class="material-icons">cake</i>
-                    SugarFixed
-                </a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#">Sign Up</a></li>
-                    <li><a href="#">Log In</a></li>
-                </ul>
-            </div>
-        </nav>
-
-    </header>
-    <main class = "main-wrapper"> 
-
-        <div class="container center-align">
-            <div class="camera">
-                <input type ="image" src="/images/camera.jpg"  id="PhotoPicker" type="file" capture="camera" accept="image/*">
-            </div>
-            <div style="width: 10; height: 10; overflow: hidden;">
-                <input id="PhotoPicker" type="file" accept="image/*">
-              </div>
-              <button class="lovely" id="PhotoButton">
-                1. Select Photo
-              </button>
-        </div>      
 
 
-    </main>
-    <footer class="page-footer">
-        <div class="footer-copyright">
-            <div class="container">
-                © 2021 SugarFixed
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo"><i class="material-icons">camera</i>SugarFixed</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a class="modal-trigger"  href="#myModal" >Log In</a></li>
+                <li><a href="#">Sign Up</a></li>
+
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a class="modal-trigger" data-target="logInModal">Log In</a></li>
+                <li><a href="#">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br><br>
+            <div class="row center">
+                <div class="container ">
+                    <div class="camera" id="camera">
+                        <video id="video" width="550" height="392" poster="/images/camera.jpg" autoplay></video>
+                        <div class="loadCamera">
+                            <button id="loadCamera" class="waves-effect waves-light btn loadCamera-button btn-large"><i
+                                    class="material-icons left">camera</i>Scan Label</button>
+                        </div>
+                    </div>
+                    <h5 class="header col s12 light">Take a photo of an ingredients list and SugarFixed will tell you
+                        what sugars are hiding in your food!</h5>
+                </div>
+                <br><br>
+
             </div>
         </div>
-    </footer>
+        <div class="features container">
+            <div class="section">
 
-    <!-- socket IO Served by the server -->
-    <script src="/socket.io/socket.io.js"></script>
+                <!--   Features Section   -->
+                <div class="row">
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <h2 class="center "><i class="fa fa-robot"></i></h2>
+                            <h5 class="center">How does it work?</h5>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                            <p class="light">SugarFixed utilises the latest AI character recognition algorithms to
+                                identify
+                                the sugars
+                                that are hiding in your food.
+                            </p>
+                        </div>
+                    </div>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <h2 class="center "><i class="fa fa-utensils"></i></h2>
+                            <h5 class="center">What's the point?</h5>
 
-    <script src="js/scripts.js"></script>
+                            <p class="light">Sugar goes by over 50 different names. It can be hard to remember them all
+                                if you're trying to eat healthy. Now you won't have to. </p>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <h2 class="center"><i class="fa fa-paper-plane"></i></h2>
+                            <h5 class="center">Contact Us</h5>
+
+                            <p class="light">We'd love to hear from you. Contact us or leave a message on the forum with
+                                any feedback you might
+                                have!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br><br>
+
+            <div class="section">
+
+            </div>
+        </div>
+
+
+
+        <footer class="page-footer" id="myFooter">
+
+
+            <div class="footer-copyright">
+                <div class="container" id="copyright">
+                    © 2021 SugarFixed
+                </div>
+                <a class="google">Powered
+                    by Google Vision</a>
+
+                <img class="right" src="/images/google-vision-ai.png">
+            </div>
+        </footer>
+        <!-- Modal -->
+<div id="myModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Modal header</h3>
+    </div>
+    <div class="modal-body">
+      <p>One fine body…</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <button class="btn btn-primary">Save changes</button>
+    </div>
+  </div>
+
+        <!-- socket IO Served by the server -->
+        <script src="/socket.io/socket.io.js"></script>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/scripts.js"></script>
 
 </body>
-<div id="modal1" class="modal modal-fixed-footer">
-    <div class="row modal-content center-align">
-        <h1>Upload Image (.jpg or .png)</h1>
-        <form class="col s12" action="api/endpoint" method="post" enctype="multipart/form-data">
 
-            <div class="row">
-                <div class="input-field col s12">
-                    <input type="file" accept=".jpg,.png" name="img">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input class="waves-effect waves-light btn" type="submit" value="upload">
-                </div>
-            </div>
-
-        </form>
-    </div>
-</div>
 
 </html>
