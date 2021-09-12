@@ -1,14 +1,24 @@
-// require('dotenv').config();
-// const GOOGLE_APPLICATION_CREDENTIALS = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-// const vision = require('@google-cloud/vision');
+// Imports the Secret Manager library
+const {SecretManagerServiceClient} = require('@google-cloud/secret-manager');
 
-// // Creates a client
-// const client = new vision.ImageAnnotatorClient();
+const name = 'projects/652222580925/secrets/sugarfixed-service-acct/versions/1';
+// const name = 'projects/my-project/secrets/my-secret/versions/latest';
 
-// const fileName = './public/uploads.test.jpg';
+// Instantiates a client
+const client = new SecretManagerServiceClient();
 
-// // Performs text detection on the local file
-// const [result] = await client.textDetection(fileName);
-// const detections = result.textAnnotations;
-// console.log('Text:');
-// detections.forEach(text => console.log(text));
+async function getKey() {
+    const [version] = await client.accessSecretVersion({
+    name: name,
+    });
+
+    // Extract the payload as a string.
+    const payload = version.payload.data.toString();
+
+    // WARNING: Do not print the secret in a production environment - this
+    // snippet is showing how to access the secret material.
+    //   console.info(`Payload: ${payload}`);
+    return payload
+}
+
+exports.GOOGLE_APPLICATION_CREDENTIALS = getKey();

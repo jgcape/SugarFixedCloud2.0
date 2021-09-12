@@ -29,5 +29,13 @@ router.post('/', upload.single('label'), (req, res) => {
     Controllers.visionController.processLabel(req.file, res)
 })
 
+router.post('/test', (req, res) => {
+  console.log(req)
+  // res.json({
+  //     statusCode:200,
+  //     message: "Success - image uploaded"
+  // })
+  Controllers.visionController.processLabel(req, res)
+})
 
 module.exports = router;
