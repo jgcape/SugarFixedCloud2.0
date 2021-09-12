@@ -49,16 +49,15 @@ $(document).ready(function(){
     console.log('Ready');
     $('.modal').modal();
 
-    $("#labelForm").click(()=>{
-        $('.modal').modal('open');
+    $("#loadCamera").click(()=>{
         allowCamera();
     })
 
-    $('#snap').click(()=>{
+    $('#scanLabel').click(()=>{
         takePhoto()
     });
 
-    $('#formSubmit').click(()=>{
+    $('#submit').click(()=>{
         submitImg();
     });
   
