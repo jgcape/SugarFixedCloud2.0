@@ -1,7 +1,7 @@
 let Service = require("../services");
 
 const processLabel = (req, res) => {
-    Service.visionService.getAllIngredients(req)
+    Service.visionService.processLabel(req);
 }
 
 module.exports = {

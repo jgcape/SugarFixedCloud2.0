@@ -1,5 +1,4 @@
-
-const getAllIngredients = async (req, res) => {
+const processLabel = async (req, res) => {
     if(req) {
         // Send to google vision API
         // TODO
@@ -25,5 +24,5 @@ const getAllIngredients = async (req, res) => {
 }
 
 module.exports = {
-    getAllIngredients
+    processLabel
 }
