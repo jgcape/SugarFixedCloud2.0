@@ -1,23 +1,23 @@
 const vision = require('@google-cloud/vision');
-const { GOOGLE_APPLICATION_CREDENTIALS } = require('../gcpConnect')
+// const { GOOGLE_APPLICATION_CREDENTIALS } = require('../gcpConnect')
 
-const processLabel = async (req, res) => {
+const extractLabel = async (req, res) => {
     let img_path = req
     if(req) {
         // Create a client
-        const client = new vision.ImageAnnotatorClient(credentials=GOOGLE_APPLICATION_CREDENTIALS);
+        const client = new vision.ImageAnnotatorClient(credentials=process.env.GOOGLE_APPLICATION_CREDENTIALS);
         console.log("Client created")
         // Performs text detection on the local file
         const [result] = await client.textDetection(img_path);
         const detections = result.textAnnotations;
         console.log('Text:');
         let label = detections.shift().description;
-        detections.forEach(item => console.log(item.description));
+        // detections.forEach(item => console.log(item.description));
         console.log(label);
-        console.log(detections[0])
+        // console.log(detections[0])
         
         if(label) {
-             return label
+            return label
         }
         else {
             res.json({
@@ -37,5 +37,5 @@ const processLabel = async (req, res) => {
 }
 
 module.exports = {
-    processLabel
+    extractLabel
 }
