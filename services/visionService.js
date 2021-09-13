@@ -10,12 +10,8 @@ const extractLabel = async (req, res) => {
         // Performs text detection on the local file
         const [result] = await client.textDetection(img_path);
         const detections = result.textAnnotations;
-        console.log('Text:');
         let label = detections.shift().description;
         // detections.forEach(item => console.log(item.description));
-        console.log(label);
-        // console.log(detections[0])
-        
         if(label) {
             return label
         }

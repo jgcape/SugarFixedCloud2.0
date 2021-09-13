@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express = require("express");
 var router = express.Router();
 var Controllers = require("../controllers");
@@ -31,12 +32,8 @@ router.post('/', upload.single('label'), (req, res) => {
 })
 
 router.post('/test', (req, res) => {
-  console.log(req)
-  // res.json({
-  //     statusCode:200,
-  //     message: "Success - image uploaded"
-  // })
-  Controllers.visionController.processLabel(req, res)
+  let url = process.env.TEST_URL
+  Controllers.visionController.processLabel(url, res)
 })
 
 module.exports = router;
