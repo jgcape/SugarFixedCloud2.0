@@ -32,6 +32,19 @@ const extractLabel = async (req, res) => {
     };
 }
 
+const extractSugars = (req, res) => {
+    console.log("Extracting sugars")
+    let label = req.replaceAll("\n", " "); //replace new line char with space
+    let ingredients = label.split(/[,,.,:,/]/);
+    console.log(label);
+    // console.log(ingredients);
+    let i = 0
+    ingredients.forEach((item) => {
+        console.log(i,item)
+        i++
+    })
+}
+
 module.exports = {
-    extractLabel
+    extractLabel, extractSugars
 }
