@@ -1,6 +1,16 @@
+.sidenav li>a {
+  padding:0 32px !important
+}
+
+.collapsible-body>ul>li>a {
+          padding: 0 48px !important;
+          font-weight: 400 !important;
+}
+
 .icon-block {
   padding: 0 15px;
 }
+
 .brand-logo{
   height: 100%;
   font-size: 100px;
@@ -48,7 +58,7 @@ body {
  
 }
 
-.fa {
+.coloured {
   color: #bd8497;
 }
 .fas {
@@ -74,9 +84,15 @@ body {
 .loadCamera-button:visited{
   background-color: #bd8497;
 }
-.canvas {
+.video{
+  width: 550;
+  height: 392;
+}
+.canvas {  
+  position:absolute;
+  top: 10;   
   
-  z-index: 10;
-  background-color:rgba(255,0,0,0.5);
+  z-index: 1;
+  
 }
   

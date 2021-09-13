@@ -1,12 +1,3 @@
-
-(function ($) {
-    $(function () {
-
-        $('.button-collapse').sideNav();
-
-    });
-})(jQuery); // end of jQuery name space
-
 const canvas = document.getElementById('canvas');
 //const context = canvas.getContext('2d');
 const video = document.getElementById('video');
@@ -17,6 +8,8 @@ const allowCamera = () => {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
             video.srcObject = stream;
+            video.style.width = 550;
+            video.style.height = 392;
             video.play();
 
         })
@@ -24,11 +17,10 @@ const allowCamera = () => {
 }
 
 const takePhoto = () => {
-    
-    const context = canvas.getContext("2d");    
-    context.drawImage(video, 0, 0, 550, 392);  
-    $(".video").toggle("off");
-    $(".canvas").toggle("on");  
+
+    const context = canvas.getContext("2d");
+    context.drawImage(video, 0, 0, 550, 392);
+
 }
 
 const uploadImg = (formData) => {
@@ -60,9 +52,9 @@ const submitImg = () => {
 }
 
 $(document).ready(function () {
-    console.log('Ready');    
+    $('.sidenav').sidenav();
+    console.log('Ready');
     $('.modal').modal();
-    $('.canvas').toggle("off");
     $("#myModal").click(() => {
         $('.modal').modal('open');
     })
@@ -76,17 +68,16 @@ $(document).ready(function () {
 
 
 });
-/*function resizeCanvas(element) {
-    var rect = video.getBoundingClientRect();
+function resizeCanvas(element) {
+
     var w = element.offsetWidth;
     var h = element.offsetHeight;
-    var x = rect.x;
     var cv = document.getElementById("canvas");
     cv.width = w;
     cv.height = h;
-    cv.style.left = x;
-    
-}*/
+
+
+}
 (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
         (i[r].q = i[r].q || []).push(arguments)
