@@ -39,7 +39,7 @@
     "uuidv4": "^6.2.12"
   },
   "devDependencies": {
-    "nodemon": "*"
+    "nodemon": "*",
     "mime-types": "^2.1.32",
     "mongodb": "^4.1.0",
     "multer": "^1.4.3",
