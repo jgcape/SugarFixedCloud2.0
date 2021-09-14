@@ -21,5 +21,10 @@ Julian Cape
 Kahlia Hogg
 Rahul Samanta
 
+## Authors
+Julian Cape
+Kahlia Hogg
+Rahul Samanta
+
 ## Licence
 MIT 2021

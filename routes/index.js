@@ -15,4 +15,5 @@ router.get('/result', ensureAuthenticated, (req, res) =>
     })
 );
 
+
 module.exports = router;
