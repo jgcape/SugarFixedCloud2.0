@@ -94,5 +94,3 @@ $(document).ready(function () {
 })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 ga('create', 'UA-60673008-2', 'auto');
 ga('send', 'pageview');
-
-
