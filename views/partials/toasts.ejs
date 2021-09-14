@@ -1,0 +1,9 @@
+<% if(locals.errors) {errors.forEach(function(error) { %>
+    <body onload="M.toast({html: '<%= error.msg %>'})">
+<% }); } %>
+<% if(successMessage != ''){ %>
+    <body onload="M.toast({html: '<%= successMessage %>'})">
+<% } %>
+<% if(errorMessage != ''){ %>
+    <body onload="M.toast({html: '<%= errorMessage %>'})">
+<% } %>

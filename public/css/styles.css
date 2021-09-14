@@ -1,0 +1,82 @@
+.icon-block {
+  padding: 0 15px;
+}
+.brand-logo{
+  height: 100%;
+  font-size: 100px;
+  padding-left: 50px;
+  
+}
+
+.container{
+  height: 100%;
+  position: relative;
+}
+.nav-wrapper{
+  font-size:large;
+background-color: #bd8497;
+padding-left: 20px;
+}
+
+#myFooter {
+  background-color: #bd8497;  
+  font-size: large;
+  color: white;
+  
+}
+#copyright{
+  color: white;  
+}
+
+
+
+
+body {
+  display: flex;  
+  flex-direction: column;
+  background-color: #d6c9b0 ;
+  background-size: contain;
+  
+}
+.camera{  
+  width: fit-content;
+  margin-left: auto;
+  margin-right:auto;
+  border: 10px solid white;
+  border-radius: 10px;
+  background-color: white;  
+ 
+}
+
+.fa {
+  color: #bd8497;
+}
+.fas {
+  color: #bd8497;
+}
+
+.features{
+  font-size: large;
+}
+.loadCamera-button {
+  background-color: #bd8497; 
+  font-size: large;  
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.loadCamera-button:hover {
+  background-color: #d6c9b0
+}
+.loadCamera-button:focus{
+  background-color: #bd8497;
+}
+
+.loadCamera-button:visited{
+  background-color: #bd8497;
+}
+.canvas {
+  
+  z-index: 10;
+  background-color:rgba(255,0,0,0.5);
+}
+  
