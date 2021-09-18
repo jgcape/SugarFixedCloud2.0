@@ -1,25 +1,38 @@
 const canvas = document.getElementById('canvas');
-//const context = canvas.getContext('2d');
+const context = canvas.getContext("2d");
 const video = document.getElementById('video');
+const scanBtn = document.getElementById('takePhoto');
+const openCameraBtn = document.getElementById('openCamera');
+const openCameraIcon = document.getElementById('openCameraIcon');
+const captureOptions = {
+    audio: false,
+    video: true,
+    video: { facingMode: "environment" },
+};
 
-const allowCamera = () => {
-    // var video = document.getElementById('video'); // Keep DOM reference, jquery doesn't work
-    // Get access to the camera
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+//Requests camera access from user and begins video stream. 
+const openCamera = () => {
+    // var video = document.getElementById('video'); // Keep DOM reference, jquery doesn't work       
+        
+   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+       
+        navigator.mediaDevices.getUserMedia(captureOptions).then(function (stream) {
             video.srcObject = stream;
-            video.style.width = 550;
-            video.style.height = 392;
             video.play();
-
+            context.clearRect(0, 0, canvas.width, canvas.height); //!!!!!!!!!!!!!Find a way to clear the canvas without it flickering!!!!!!!!
         })
     };
 }
-
+//Takes a photo for verification prior to sending, !!!relabels buttons!!! ADD FUNCTIONALITY.
 const takePhoto = () => {
+    // //$("#openCameraIcon").html('<i id="save" class="material-icons">check</i>');
+    // openCameraIcon.innerHTML = '<i id="openCameraIcon" class="material-icons">photo_camera</i>';
+    // openCameraIcon.innerText = "retake photo";  
 
-    const context = canvas.getContext("2d");
-    context.drawImage(video, 0, 0, 550, 392);
+    // scanBtn.innerHtml = "<i>class='material-icons left'>poll</i>analyse";
+    canvas.height = $('video').innerHeight();
+    canvas.width = $('video').innerWidth();
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
 }
 
@@ -58,26 +71,18 @@ $(document).ready(function () {
     $("#myModal").click(() => {
         $('.modal').modal('open');
     })
-    $('#snap').click(() => {
+    $('#takePhoto').click(() => {
         takePhoto()
+    });
+    $('#openCamera').click(() => {
+        openCamera()
     });
 
     $('#formSubmit').click(() => {
         submitImg();
     });
-
-
 });
-function resizeCanvas(element) {
 
-    var w = element.offsetWidth;
-    var h = element.offsetHeight;
-    var cv = document.getElementById("canvas");
-    cv.width = w;
-    cv.height = h;
-
-
-}
 (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
         (i[r].q = i[r].q || []).push(arguments)

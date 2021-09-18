@@ -63,16 +63,13 @@
                     <div class="camera" id="camera">
                         <div>
                         <canvas class="canvas" id="canvas" ></canvas>
-                        <video class="video" id="video" width="550" height="392" poster="/images/camera.jpg" autoplay
-                            onplay="resizeCanvas(this)"></video>
+                        <video class="video" id="video"  poster="/images/camera.jpg" autoplay></video>
                         
                         </div>
-                        <div class="loadCamera">
-                            <button id="loadCamera" onclick="allowCamera()"
-                                class="waves-effect waves-light loadCamera-button btn-large"><i
-                                    class="material-icons left">photo_camera</i>Open Camera</button>
-                            <button id="loadCamera" onclick="takePhoto()"
-                                class="waves-effect waves-light loadCamera-button btn-large"><i
+                        <div class="cameraButtons">
+                            <button id="openCamera" class="waves-effect waves-light cameraButtons-button btn-large"><i id='openCameraIcon'
+                                    class="material-icons left">power_settings_new</i>Open Camera</button>
+                            <button id="takePhoto" class="waves-effect waves-light cameraButtons-button btn-large"><i
                                     class="material-icons left">camera</i>Scan Label</button>
                         </div>
                     </div>
