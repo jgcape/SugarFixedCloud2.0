@@ -1,14 +1,31 @@
-Dextrose 
-Fructose 
-Galactose 
-Glucose 
-Lactose 
-Maltose 
-Sucrose
+dextrose 
+fructose 
+galactose 
+glucose 
+lactose 
+maltose 
+sucrose
+demerara
+syrup
+rapadura
+dextrin 
+diastatic malt 
+maltol
+muscovado
+panela
+maltodextrin 
+turbinado
+sucanat
+molasses
+agave
+High-Fructose
+HFCS
+honey
+treacle
+buttercream 
+caramel 
 
-Cane juice crystals 
-
-
+"Sugars"
 Beet sugar 
 Brown sugar 
 Cane sugar 
@@ -18,49 +35,37 @@ Confectioner's sugar
 Powdered sugar
 Date sugar 
 Demerara sugar
-
-Corn syrup solids
-Crystalline fructose
-Rapadura
-Dextrin 
-Diastatic malt 
-Ethyl maltol 
-Florida crystals
-
-Golden sugar 
-Glucose syrup solids 
+Golden sugar
 Grape sugar 
 Icing sugar 
-Maltodextrin 
 Muscovado sugar 
 Panela sugar 
 Raw sugar 
 Sugar (granulated or table) 
-Sucanat 
 Turbinado sugar 
 Yellow sugar
+Invert sugar 
+
+"Syrups"
+Corn syrup solids
+Glucose syrup solids 
+Carob syrup 
+Corn syrup 
+Golden syrup
+Malt syrup 
+Maple syrup  
+Refiner's syrup 
+Sorghum syrup
+Brown rice syrup 
+Rice syrup 
+
+Evaporated cane juice 
+Fruit juice 
+Fruit juice concentrate 
+Molasses 
 Agave Nectar
 Syrup 
 Barley malt 
 Blackstrap molasses 
-Brown rice syrup 
 Buttered sugar
-Buttercream 
-Caramel 
-Carob syrup 
-Corn syrup 
-Evaporated cane juice 
-Fruit juice 
-Fruit juice concentrate 
-Golden syrup 
-High-Fructose Corn Syrup
-HFCS 
-Honey 
-Invert sugar 
-Malt syrup 
-Maple syrup 
-Molasses 
-Rice syrup 
-Refiner's syrup 
-Sorghum syrup 
-Treacle 
+

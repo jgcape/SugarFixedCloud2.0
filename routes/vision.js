@@ -32,7 +32,7 @@ router.post('/', upload.single('label'), (req, res) => {
 })
 
 router.post('/test', (req, res) => {
-  let url = process.env.TEST_URL
+  url = process.env.TEST_URL
   Controllers.visionController.processLabel(url, res)
 })
 
