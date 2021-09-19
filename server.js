@@ -7,7 +7,7 @@ const session = require('express-session');
 const db = require('./mongodbConnect');
 
 const bodyParser = require('body-parser');
-const mongoConnect = require("./mongoConnect.js") // Should we just stick with Mongoose and discard this?
+// const mongoConnect = require("./mongoConnect.js") // Should we just stick with Mongoose and discard this?
 
 const app = express();
 
