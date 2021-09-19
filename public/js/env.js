@@ -40,7 +40,6 @@ const submitImg = (productName) => {
         const formData = new FormData();
         formData.append('label', blob, 'label.jpg');
         formData.append('product', productName);
-        console.log(formData);
         uploadImg(formData);
     }, 
     'image/jpeg');
