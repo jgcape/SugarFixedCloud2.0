@@ -1,7 +1,22 @@
+.sidenav li>a {
+  padding:0 32px !important;
+  color: #bd8497;
+}
+
+.collapsible-body>ul>li>a {
+          padding: 0 48px !important;
+          font-weight: 400 !important;
+}
+
 .icon-block {
   padding: 0 15px;
 }
+
+h5{
+  font-weight: bold;
+}
 .brand-logo{
+  width: fit-content;  /* fit-content prevented text from splitting over two lines on some mobile interfaces*/
   height: 100%;
   font-size: 100px;
   padding-left: 50px;
@@ -12,8 +27,10 @@
   height: 100%;
   position: relative;
 }
+
 .nav-wrapper{
   font-size:large;
+  width: 100%;
 background-color: #bd8497;
 padding-left: 20px;
 }
@@ -29,17 +46,16 @@ padding-left: 20px;
 }
 
 
-
-
 body {
   display: flex;  
   flex-direction: column;
   background-color: #d6c9b0 ;
-  background-size: contain;
-  
+  background-size: contain;  
+  font-family: Roboto;
 }
+
 .camera{  
-  width: fit-content;
+  width: fit-content !important;
   margin-left: auto;
   margin-right:auto;
   border: 10px solid white;
@@ -48,35 +64,50 @@ body {
  
 }
 
-.fa {
-  color: #bd8497;
-}
-.fas {
+.coloured {
   color: #bd8497;
 }
 
+.sugarpic{
+  width:60%;
+  border: 5px solid #fff;
+  border-radius: 25px;
+}
+
+.results{
+  font-weight: bold;
+  font-size: 100px;
+}
 .features{
   font-size: large;
 }
-.loadCamera-button {
+.cameraButtons-button {
   background-color: #bd8497; 
   font-size: large;  
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.loadCamera-button:hover {
+.cameraButtons-button:hover {
   background-color: #d6c9b0
 }
-.loadCamera-button:focus{
+.cameraButtons-button:focus{
   background-color: #bd8497;
 }
 
-.loadCamera-button:visited{
+.cameraButtons-button:visited{
   background-color: #bd8497;
 }
-.canvas {
-  
-  z-index: 10;
-  background-color:rgba(255,0,0,0.5);
+
+.video{
+  width: 100%;    /*100% width enables responsive size*/  
 }
-  
+
+.canvas {  
+  position:absolute;
+  top: 10;  
+  z-index: 1;  /* Requires z-index to layer over video */
+}
+
+html,body{
+  overflow-x: hidden; /* Overflow X prevents a gap between the navbar and the side of the page on some mobiles. */
+}

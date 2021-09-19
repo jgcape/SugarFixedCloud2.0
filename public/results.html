@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 
-    <title>SugarFixed Home Page</title>
+    <title>SugarFixed Results Page</title>
     <meta property="og:title" content="SugarFixed home page">
     <meta property="og:type" content="website">
     <meta property="og:description" content="Home page for food label reading sugar identification application.">
@@ -62,22 +62,10 @@
             <br><br>
             <div class="row center">
                 <div class="container ">
-                    <div class="camera" id="camera">
-                        <div>
-                            <canvas class="canvas" id="canvas"></canvas>
-                            <video class="video" id="video" poster="/images/camera.jpg" autoplay></video>
-
-                        </div>
-                        <div class="cameraButtons">
-                            <button id="openCamera" class="waves-effect waves-light cameraButtons-button btn-large"><i
-                                    id='openCameraIcon' class="material-icons left">power_settings_new</i>Open
-                                Camera</button>
-                            <button id="takePhoto" class="waves-effect waves-light cameraButtons-button btn-large"><i
-                                    class="material-icons left">camera</i>Scan Label</button>
-                        </div>
+                    <div>
+                        <img class="sugarpic" src="/images/sugar.jpg">
                     </div>
-                    <h5 class="header col s12 light">Take a photo of an ingredients list and SugarFixed will tell you
-                        what sugars are hiding in your food!</h5>
+                    <h1 class="header col s12 results">Results</h5>
                 </div>
                 <br><br>
             </div>
@@ -89,32 +77,44 @@
                 <div class="row">
                     <div class="col s12 m4">
                         <div class="icon-block">
-                            <h2 class="center "><i class="fa fa-robot coloured"></i></h2>
-                            <h5 class="center">How does it work?</h5>
+                            <h2 class="center "><i class="fa fa-question coloured"></i></h2>
+                            <h5 class="center">How much is ok?</h5>
 
-                            <p class="light">SugarFixed utilises the latest AI character recognition algorithms to
-                                identify the sugars that are hiding in your food.
+                            <p class="light">The World Health Organization (WHO) recommends you consume no more than 50
+                                grams of sugar per day.
                             </p>
                         </div>
                     </div>
 
                     <div class="col s12 m4">
                         <div class="icon-block">
-                            <h2 class="center "><i class="fa fa-utensils coloured"></i></h2>
-                            <h5 class="center">What's the point?</h5>
-                            <p class="light">Sugar goes by over 50 different names. It can be hard to remember them all
-                                if you're trying to eat healthy. Now you won't have to. </p>
+                            <h2 class="center "><i class="fa fa-cookie coloured"></i></h2>
+                            <h5 class="center">A sweet by any other name.....</h5>
+                            <p>The list below contains some of the most common sugars.</p>
+                            <ul class="fa-ul">
+                                <li><i class="fa-li fa fa-cookie-bite"></i>Brown sugar</li>
+                                <li><i class="fa-li fa fa-cookie-bite"></i>Corn sweetener</li>
+                                <li><i class="fa-li fa fa-cookie-bite"></i>Corn syrup</li>
+                                <li><i class="fa-li fa fa-cookie-bite"></i>Fruit juice concentrates</li>
+                                <li><i class="fa-li fa fa-cookie-bite"></i>High-fructose corn syrup</li>
+                                <li><i class="fa-li fa fa-cookie-bite"></i>Honey</li>
+                                <li><i class="fa-li fa fa-cookie-bite"></i>Invert sugar</li>
+                                <li><i class="fa-li fa fa-cookie-bite"></i>Malt sugar</li>
+                                <li><i class="fa-li fa fa-cookie-bite"></i>Molasses</li>
+                                <li><i class="fa-li fa fa-cookie-bite"></i>Syrup sugar molecules ending in "ose"
+                                    (dextrose, fructose, glucose, lactose, maltose, sucrose)</li>
+
+                            </ul>
                         </div>
                     </div>
 
                     <div class="col s12 m4">
                         <div class="icon-block">
-                            <h2 class="center"><i class="fa fa-paper-plane coloured"></i></h2>
-                            <h5 class="center">Contact Us</h5>
+                            <h2 class="center"><i class="fa fa-stroopwafel coloured"></i></h2>
+                            <h5 class="center">Is there a nutritional difference between the types of sugars?</h5>
 
-                            <p class="light">We'd love to hear from you. Contact us or leave a message on the forum with
-                                any feedback you might
-                                have!
+                            <p class="light">In short, no. They have taste different due to varying processing
+                                techniques but are all 100% carbohydrate.
                             </p>
                         </div>
                     </div>
@@ -135,25 +135,7 @@
 
             </div>
         </footer>
-        <div id="modal1" class="modal modal-fixed-footer">
-            <div class="row modal-content">
-              <form class="col s12">
-                  <p>Enter a name for your product and we'll add it to your database.</p>
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input placeholder="Product name" id="product_name" type="text" class="validate">
-                    <label for="product_name">Product Name</label>
-                  </div>                  
-                </div>             
-                
-                <div class="row">
-                  <div class="input-field col s12 center-align">
-                    <a class="waves-effect waves-light btn cameraButtons-button" id="formSubmit">submit</a>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
+
         <!-- socket IO Served by the server -->
         <!-- <script src="/socket.io/socket.io.js"></script> -->
 
