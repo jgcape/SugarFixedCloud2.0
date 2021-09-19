@@ -36,7 +36,7 @@ const extractLabel = async (req, res) => {
             }
         }
         else {
-            res.json({
+            res.send({
                 statusCode: 400,
                 data: req,
                 message: "Failed: OCR unable to detect text"
@@ -44,7 +44,7 @@ const extractLabel = async (req, res) => {
         };
     }
     else {
-        res.json({
+        res.send({
             statusCode: 400,
             data: req,
             message: "Failed: No label to process"
@@ -64,7 +64,7 @@ const extractSugars = (req, res) => {
             let matched = new Set(filtered);
             allSugars = union(allSugars, matched);
         });
-        saveSugars(allSugars, productName)       
+        saveSugars(allSugars, productName)     
     }
     else {
         res.json({
@@ -83,7 +83,7 @@ const saveSugars = (sugars, productName) => {
 
     Sugar.create(sugarsData, (err, result) => {
         if(result) {
-            console.log('Sugars Saved', result)
+            console.log("Sugars saved", result);
         }
     });
 }
