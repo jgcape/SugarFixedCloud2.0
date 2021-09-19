@@ -41,7 +41,6 @@ const takePhoto = () => {
     else  {        
         $('.modal').modal('open');
     }
-
 }
 
 const uploadImg = (formData) => {
@@ -54,7 +53,7 @@ const uploadImg = (formData) => {
         processData: false,
         success: (result) => {
             alert(result.message)
-            location.reload();
+            location.href = 'results.html';
         },
         error: (err) => {
             alert(err.message);
@@ -62,10 +61,11 @@ const uploadImg = (formData) => {
     })
 }
 
-const submitImg = () => {
+const submitImg = (productName) => {
     canvas.toBlob(function (blob) {
         const formData = new FormData();
         formData.append('label', blob, 'label.jpg');
+        formData.append('product', productName);
         console.log(formData);
         uploadImg(formData);
     },
@@ -84,7 +84,13 @@ $(document).ready(function () {
     });
 
     $('#formSubmit').click(() => {
-        submitImg();
+        var productName = $('#productName').val();
+        if (productName == '') {
+            alert("Please provide a product name")
+        }
+        else {
+            submitImg(productName);
+        }
     });
 });
 
