@@ -9,30 +9,38 @@ const captureOptions = {
     video: true,
     video: { facingMode: "environment" },
 };
+var counter = 0;
 
 //Requests camera access from user and begins video stream. 
 const openCamera = () => {
     // var video = document.getElementById('video'); // Keep DOM reference, jquery doesn't work       
-        
-   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-       
+    counter = 0;
+    scanBtn.innerText = "scan label";
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+
         navigator.mediaDevices.getUserMedia(captureOptions).then(function (stream) {
             video.srcObject = stream;
             video.play();
-            context.clearRect(0, 0, canvas.width, canvas.height); //!!!!!!!!!!!!!Find a way to clear the canvas without it flickering!!!!!!!!
+            context.clearRect(0, 0, canvas.width, canvas.height); 
         })
     };
 }
-//Takes a photo for verification prior to sending, !!!relabels buttons!!! ADD FUNCTIONALITY.
+//Takes a photo for verification prior to sending, !!!relabels buttons!!! MAKE ICONS CHANGE WITH TEXT
 const takePhoto = () => {
-    // //$("#openCameraIcon").html('<i id="save" class="material-icons">check</i>');
-    // openCameraIcon.innerHTML = '<i id="openCameraIcon" class="material-icons">photo_camera</i>';
-    // openCameraIcon.innerText = "retake photo";  
+    if (counter == 0) {
+        counter = 1;        
+        openCameraBtn.innerText = "retake photo";  
+        openCameraIcon.innerText = "camera";
 
-    // scanBtn.innerHtml = "<i>class='material-icons left'>poll</i>analyse";
-    canvas.height = $('video').innerHeight();
-    canvas.width = $('video').innerWidth();
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        scanBtn.innerText = "process label";
+        canvas.height = $('video').innerHeight();
+        canvas.width = $('video').innerWidth();
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    }
+
+    else  {        
+        $('.modal').modal('open');
+    }
 
 }
 
@@ -67,10 +75,7 @@ const submitImg = () => {
 $(document).ready(function () {
     $('.sidenav').sidenav();
     console.log('Ready');
-    $('.modal').modal();
-    $("#myModal").click(() => {
-        $('.modal').modal('open');
-    })
+    $('.modal').modal();    
     $('#takePhoto').click(() => {
         takePhoto()
     });

@@ -12,7 +12,9 @@
   padding: 0 15px;
 }
 
-
+h5{
+  font-weight: bold;
+}
 .brand-logo{
   width: fit-content;  /* fit-content prevented text from splitting over two lines on some mobile interfaces*/
   height: 100%;
@@ -43,11 +45,13 @@ padding-left: 20px;
   color: white;  
 }
 
+
 body {
   display: flex;  
   flex-direction: column;
   background-color: #d6c9b0 ;
   background-size: contain;  
+  font-family: Roboto;
 }
 
 .camera{  
@@ -63,10 +67,17 @@ body {
 .coloured {
   color: #bd8497;
 }
-.fas {
-  color: #bd8497;
+
+.sugarpic{
+  width:60%;
+  border: 5px solid #fff;
+  border-radius: 25px;
 }
 
+.results{
+  font-weight: bold;
+  font-size: 100px;
+}
 .features{
   font-size: large;
 }

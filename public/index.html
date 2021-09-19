@@ -22,37 +22,39 @@
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <link rel="icon" href="/images/camera-icon.png" type="image/x-icon">
     <link rel="shortcut icon" href="/images/camera-icon.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
     <!-- Custom Style Sheet-->
     <link href="css/styles.css" rel="stylesheet">
- 
+
 
 </head>
 
 
 <body>
-    
-    <div class="navbar">        
+
+    <div class="navbar">
         <nav>
-          <div class="nav-wrapper">
-            <a href="index.html" class="brand-logo"><i class="material-icons">camera</i>SugarFixed</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="#">Log In</a></li>
-              <li><a href="#">Sign Up</a></li>              
-            </ul>
-          </div>
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo"><i class="material-icons">camera</i>SugarFixed</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Sign Up</a></li>
+                </ul>
+            </div>
         </nav>
-      </div>
-  
-      <ul class="sidenav" id="mobile-demo">
+    </div>
+
+    <ul class="sidenav" id="mobile-demo">
         <li class="logo"><a href="#!" class="brand-logo"><i class="material-icons">camera</i>SugarFixed</a></li>
         <li><a href="#">Log In</a></li>
         <li><a href="#">Sign Up</a></li>
-        
-      </ul>
-    
+
+    </ul>
+
 
 
     <div class="section no-pad-bot" id="index-banner">
@@ -62,13 +64,14 @@
                 <div class="container ">
                     <div class="camera" id="camera">
                         <div>
-                        <canvas class="canvas" id="canvas" ></canvas>
-                        <video class="video" id="video"  poster="/images/camera.jpg" autoplay></video>
-                        
+                            <canvas class="canvas" id="canvas"></canvas>
+                            <video class="video" id="video" poster="/images/camera.jpg" autoplay></video>
+
                         </div>
                         <div class="cameraButtons">
-                            <button id="openCamera" class="waves-effect waves-light cameraButtons-button btn-large"><i id='openCameraIcon'
-                                    class="material-icons left">power_settings_new</i>Open Camera</button>
+                            <button id="openCamera" class="waves-effect waves-light cameraButtons-button btn-large"><i
+                                    id='openCameraIcon' class="material-icons left">power_settings_new</i>Open
+                                Camera</button>
                             <button id="takePhoto" class="waves-effect waves-light cameraButtons-button btn-large"><i
                                     class="material-icons left">camera</i>Scan Label</button>
                         </div>
@@ -132,7 +135,25 @@
 
             </div>
         </footer>
-
+        <div id="modal1" class="modal modal-fixed-footer">
+            <div class="row modal-content">
+              <form class="col s12">
+                  <p>Enter a name for your product and we'll add it to your database.</p>
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input placeholder="Product name" id="product_name" type="text" class="validate">
+                    <label for="product_name">Product Name</label>
+                  </div>                  
+                </div>             
+                
+                <div class="row">
+                  <div class="input-field col s12 center-align">
+                    <a class="waves-effect waves-light btn cameraButtons-button" id="formSubmit">submit</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         <!-- socket IO Served by the server -->
         <!-- <script src="/socket.io/socket.io.js"></script> -->
 
