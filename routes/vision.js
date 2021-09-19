@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express = require("express");
 var router = express.Router();
 var Controllers = require("../controllers");
@@ -21,13 +22,21 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 router.post('/', upload.single('label'), (req, res) => {
-    console.log(req.file)
-    res.json({
-        statusCode:200,
-        message: "Success - image uploaded"
-    })
-    // Controllers.visionController.processLabel(req.file, res)
+	console.log(req._passport)
+	let productData = {
+    imgPath: req.file.path,
+    productName: req.body.product
+  }
+	Controllers.visionController.processLabel(productData, res)
+	res.json({
+		statusCode:200,
+		message: "Success - label processed"
+	})
 })
 
+router.post('/test', (req, res) => {
+  url = process.env.TEST_URL
+  Controllers.visionController.processLabel(url, res)
+})
 
 module.exports = router;

@@ -35,11 +35,11 @@ const uploadImg = (formData) => {
     })
 }
 
-const submitImg = () => {
+const submitImg = (productName) => {
     canvas.toBlob(function(blob) {
         const formData = new FormData();
         formData.append('label', blob, 'label.jpg');
-        console.log(formData);
+        formData.append('product', productName);
         uploadImg(formData);
     }, 
     'image/jpeg');
@@ -49,17 +49,22 @@ $(document).ready(function(){
     console.log('Ready');
     $('.modal').modal();
 
-    $("#labelForm").click(()=>{
-        $('.modal').modal('open');
+    $("#loadCamera").click(()=>{
         allowCamera();
     })
 
-    $('#snap').click(()=>{
+    $('#scanLabel').click(()=>{
         takePhoto()
     });
 
-    $('#formSubmit').click(()=>{
-        submitImg();
+    $('#submit').click(()=>{
+        var productName = $('#productName').val();
+        if (productName == '') {
+            alert("Please provide a product name")
+        }
+        else {
+            submitImg(productName);
+        }
     });
   
     

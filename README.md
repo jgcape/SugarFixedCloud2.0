@@ -11,11 +11,16 @@ SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API
 
     npm install    
 
-2. Serve app at localhost:8080/
+2. Serve app at localhost:8080 with nodemon (only dev dependency)
 
-    npm start
+    npm run dev
 
-3. Navigate to localhost:8080
+3. Navigate to [http://localhost:8080](localhost:8080)
+
+## Authors
+Julian Cape
+Kahlia Hogg
+Rahul Samanta
 
 ## How to use SugarFixed
 
