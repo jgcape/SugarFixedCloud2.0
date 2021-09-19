@@ -28,6 +28,7 @@ const extractLabel = async (req, res) => {
         // Performs text detection on the local file
         const [result] = await client.textDetection(img_path);
         const detections = result.textAnnotations;
+        // console.log(detections)
         let label = detections.shift().description;
         // detections.forEach(item => console.log(item.description));
         if(label) {
@@ -51,9 +52,10 @@ const extractLabel = async (req, res) => {
 }
 
 const extractSugars = (req, res) => {
-    if(req) {
+    var productName = req.productName
+    if(req.label) {
         console.log("Extracting sugars")
-        let label = req.replaceAll("\n", " "); // replace new line char with space
+        let label = req.label.replaceAll("\n", " "); // replace new line char with space
         let ingredients = label.split(/[,,.,:,(,),[,\]]/); // split label string to list of words
         console.log(label);
         var allSugars = new Set();
@@ -63,14 +65,20 @@ const extractSugars = (req, res) => {
             let matched = new Set(filtered);
             allSugars = union(allSugars, matched)
         });
-        saveSugars(allSugars)
+        saveSugars(allSugars, productName)
+    }
+    else {
+        res.json({
+            statusCode: 400,
+            message: "Failed: Cannot extract sugars from label"
+        })
     }
 };
 
-const saveSugars = (sugars) => {
+const saveSugars = (sugars, productName) => {
     let sugarsData = {
         userID: "Passport Uuid",
-        productName: "Test-Product",
+        productName: productName,
         productSugars: Array.from(sugars)
     }
 

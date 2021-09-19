@@ -35,10 +35,11 @@ const uploadImg = (formData) => {
     })
 }
 
-const submitImg = () => {
+const submitImg = (productName) => {
     canvas.toBlob(function(blob) {
         const formData = new FormData();
         formData.append('label', blob, 'label.jpg');
+        formData.append('product', productName);
         console.log(formData);
         uploadImg(formData);
     }, 
@@ -58,7 +59,13 @@ $(document).ready(function(){
     });
 
     $('#submit').click(()=>{
-        submitImg();
+        var productName = $('#productName').val();
+        if (productName == '') {
+            alert("Please provide a product name")
+        }
+        else {
+            submitImg(productName);
+        }
     });
   
     
