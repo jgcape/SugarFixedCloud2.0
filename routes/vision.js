@@ -22,16 +22,12 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 router.post('/', upload.single('label'), (req, res) => {
-	console.log(req._passport)
+	// console.log(req._passport)
 	let productData = {
     imgPath: req.file.path,
     productName: req.body.product
   }
 	Controllers.visionController.processLabel(productData, res)
-	res.json({
-		statusCode:200,
-		message: "Success - label processed"
-	})
 })
 
 router.post('/test', (req, res) => {

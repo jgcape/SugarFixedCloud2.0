@@ -14,6 +14,10 @@ const processLabel = async (req, res) => {
         // Tidy uploads, remove image from temp server storage 
         await unlinkFile(imgPath)
         console.log("Image removed from server")
+        res.json({
+            statusCode: 200,
+            message: "Success: Sugars saved"
+        })
     }
     else {
         res.json({
