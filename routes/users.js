@@ -105,7 +105,8 @@ router.post('/register', (req, res) => {
 // Login route
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/result',
+        successRedirect: '/',
+        successFlash: 'Welcome to SugarFixed!',
         failureRedirect: '/login',
         failureFlash: true
     })(req, res, next);
@@ -115,7 +116,7 @@ router.post('/login', (req, res, next) => {
 router.get('/logout', (req, res) => {
     req.logout();
     req.flash('success', 'You have logged out successfully');
-    res.redirect('/login');
+    res.redirect('/');
 });
 
 module.exports = router;
