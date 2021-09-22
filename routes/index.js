@@ -6,7 +6,7 @@ const {
 } = require('../controllers/userController');
 
 // Landing Page
-router.get('/', forwardAuthenticated, (req, res) => res.render('landing'));
+router.get('/', (req, res) => res.render('landing'));
 
 // Sugars result page
 router.get('/result', ensureAuthenticated, (req, res) =>
@@ -14,6 +14,5 @@ router.get('/result', ensureAuthenticated, (req, res) =>
         user: req.user
     })
 );
-
 
 module.exports = router;

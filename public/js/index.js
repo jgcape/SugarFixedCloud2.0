@@ -53,7 +53,7 @@ const uploadImg = (formData) => {
         processData: false,
         success: (result) => {
             alert(result.message)
-            location.href = 'results.html';
+            location.href = '/result';
         },
         error: (err) => {
             alert(err.message);
@@ -72,9 +72,7 @@ const submitImg = (productName) => {
         'image/jpeg');
 }
 
-$(document).ready(function () {
-    $('.sidenav').sidenav();
-    console.log('Ready');
+$(function () {
     $('.modal').modal();    
     $('#takePhoto').click(() => {
         takePhoto()
