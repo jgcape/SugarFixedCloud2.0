@@ -3,7 +3,10 @@ const vision = require('@google-cloud/vision');
 // Load Sugar model
 const Sugar = require('../models/Sugars');
 
-const SUGARS_DB = ['sugar','dextrose','fructose','galactose','glucose','lactose','maltose','sucrose','demerara','syrup','rapadura','dextrin','diastatic malt','maltol','muscovado','panela','maltodextrin','turbinado','sucanat','molasses','agave','high fructose','hfcs','honey','treacle','buttercream','caramel']
+const SUGARS_DB = ['sugar','dextrose','fructose','galactose','glucose','lactose','maltose',
+                'sucrose','demerara','syrup','rapadura','dextrin','diastatic malt','maltol',
+                'muscovado','panela','maltodextrin','turbinado','sucanat','molasses','agave',
+                'high fructose','hfcs','honey','treacle','buttercream','caramel']
 
 function filterSugars(arr, query) {
     return arr.filter(function(el) {
@@ -64,7 +67,14 @@ const extractSugars = (req, res) => {
             let matched = new Set(filtered);
             allSugars = union(allSugars, matched);
         });
-        saveSugars(allSugars, productName)     
+        let sugarsList = Array.from(allSugars);
+        if (sugarsList.length != 0) {
+            saveSugars(sugarsList, productName)
+        }
+        else {
+            saveSugars(["No sugars found"], productName)
+        }
+             
     }
     else {
         res.json({
@@ -78,7 +88,7 @@ const saveSugars = (sugars, productName) => {
     let sugarsData = {
         userID: "Passport Uuid",
         productName: productName,
-        productSugars: Array.from(sugars)
+        productSugars: sugars
     }
 
     Sugar.create(sugarsData, (err, result) => {
