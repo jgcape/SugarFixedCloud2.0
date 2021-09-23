@@ -57,8 +57,8 @@ const io = require('socket.io')(http);
 // Routes
 app.use('/', require('./routes/index.js'));
 app.use('/', require('./routes/users.js'));
-const visionRoute = require('./routes/vision');
-app.use('/api/vision', visionRoute);
+app.use('/api/vision', require('./routes/vision'));
+app.use('/api/sugars', require('./routes/sugars'));
 
 const port = PORT || 8080;
 
