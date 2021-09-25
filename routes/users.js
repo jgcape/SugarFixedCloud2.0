@@ -78,7 +78,8 @@ router.post('/register', (req, res) => {
                     const newUser = new User({
                         name,
                         email,
-                        password
+                        password,
+                        provider: 'local'
                     });
 
                     bcrypt.genSalt(saltRounds, (err, salt) => {
@@ -87,7 +88,7 @@ router.post('/register', (req, res) => {
                             newUser.password = hash;
                             newUser.save()
                                 .then(user => {
-                                    login_message = 'Congrats '+ user.name +'! You have registered successfully. Please log in to continue...';
+                                    login_message = 'Congrats ' + user.name + '! You have registered successfully. Please log in to continue...';
                                     req.flash('success', login_message);
                                     res.redirect('/login');
                                 })
@@ -103,14 +104,73 @@ router.post('/register', (req, res) => {
 });
 
 // Login route
-router.post('/login', (req, res, next) => {
+router.post('/login',
     passport.authenticate('local', {
-        successRedirect: '/',
-        successFlash: 'Welcome to SugarFixed!',
         failureRedirect: '/login',
         failureFlash: true
-    })(req, res, next);
-});
+    }),
+    (req, res, next) => {
+        login_success = 'Hi ' + req.user.name + ', welcome to SugarFixed!';
+        req.flash('success', login_success);
+        res.redirect('/');
+        next();
+    }
+);
+
+// Google Login route
+router.get('/login/google',
+    passport.authenticate('google', {
+        scope: ['email', 'profile']
+    }))
+
+router.get('/login/google/callback',
+    passport.authenticate('google', {
+        failureRedirect: '/login',
+        failureFlash: true
+    }),
+    (req, res, next) => {
+        login_success = 'Hi ' + req.user.name + ', welcome to SugarFixed!';
+        req.flash('success', login_success);
+        res.redirect('/');
+        next();
+    }
+);
+
+// Twitter Login route
+router.get('/login/twitter',
+    passport.authenticate('twitter'))
+
+router.get('/login/twitter/callback',
+    passport.authenticate('twitter', {
+        failureRedirect: '/login',
+        failureFlash: true
+    }),
+    (req, res, next) => {
+        login_success = 'Hi ' + req.user.name + ', welcome to SugarFixed!';
+        req.flash('success', login_success);
+        res.redirect('/');
+        next();
+    }
+);
+
+// Facebook Login route
+router.get('/login/facebook',
+    passport.authenticate('facebook', {
+        scope:['public_profile', 'email']
+    }))
+
+router.get('/login/facebook/callback',
+    passport.authenticate('facebook', {
+        failureRedirect: '/login',
+        failureFlash: true
+    }),
+    (req, res, next) => {
+        login_success = 'Hi ' + req.user.name + ', welcome to SugarFixed!';
+        req.flash('success', login_success);
+        res.redirect('/');
+        next();
+    }
+);
 
 // Logout route
 router.get('/logout', (req, res) => {

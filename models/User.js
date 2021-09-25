@@ -10,8 +10,15 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
     password: {
-        type: String,
-        required: true
+        type: String
+    },
+
+    // Save user account creation provider as Google, Twitter, Facebook or Local
+    provider: {
+        type: String
+    },
+    providerId: {
+        type: String
     },
     date: {
         type: Date,

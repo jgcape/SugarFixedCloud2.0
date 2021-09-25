@@ -25,8 +25,8 @@ app.use(bodyParser.json());
 require('./services/userService')(passport);
 
 // EJS template engine
-app.use(expressLayouts);
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
 
 // Middleware
 // Express session initialization
