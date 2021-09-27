@@ -52,8 +52,13 @@ const uploadImg = (formData) => {
         contentType: false,
         processData: false,
         success: (result) => {
-            alert(result.message)
-            location.href = '/result';
+            if (result.statusCode == 200) {
+                location.href = '/result';
+            }
+            else {
+                alert(result.message)
+                location.reload();
+            }       
         },
         error: (err) => {
             alert(err.message);

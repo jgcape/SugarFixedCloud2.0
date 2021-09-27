@@ -1,8 +1,7 @@
-const getResult = (userID) => {
-    console.log("Querying", userID);
+const getResult = () => {
+    // console.log("Querying", userID);
     $.ajax({
-        enctype:'multipart/form-data',
-        url: `/api/sugars/result/${userID}`,
+        url: '/api/sugars/latest',
         type: 'GET',
         success: (result) => {
             console.log(result)
@@ -17,5 +16,5 @@ const getResult = (userID) => {
 
 $(document).ready(function(){
     console.log('Ready');
-    getResult('abc123')
+    getResult()
   });
