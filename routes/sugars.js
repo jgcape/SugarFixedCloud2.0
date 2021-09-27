@@ -10,7 +10,7 @@ router.get('/result/:userID', (req, res) => {
     Sugar.findOne({userID: req.params.userID}).sort({date: -1}).exec(function(err, result) { 
         res.json({
             statusCode:200,
-            data: result.productSugars,
+            data: result.sugars,
             message: "Sucess: retrieved latest result"
         });
     });

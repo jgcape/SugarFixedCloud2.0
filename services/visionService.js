@@ -6,7 +6,7 @@ const Sugar = require('../models/Sugars');
 const SUGARS_DB = ['sugar','dextrose','fructose','galactose','glucose','lactose','maltose',
                 'sucrose','demerara','syrup','rapadura','dextrin','diastatic malt','maltol',
                 'muscovado','panela','maltodextrin','turbinado','sucanat','molasses','agave',
-                'high fructose','hfcs','honey','treacle','buttercream','caramel']
+                'high fructose','hfcs','honey','treacle','buttercream','caramel'];
 
 function filterSugars(arr, query) {
     return arr.filter(function(el) {
@@ -20,11 +20,11 @@ function union(setA, setB) {
         _union.add(elem)
     }
     return _union
-}
+};
 
 const extractLabel = async (req, res) => {
     let img_path = req
-    if(req) {
+    if(img_path) {
         // Create a client
         const client = new vision.ImageAnnotatorClient(credentials=process.env.GOOGLE_APPLICATION_CREDENTIALS);
         console.log("Client created")
@@ -33,31 +33,20 @@ const extractLabel = async (req, res) => {
         const detections = result.textAnnotations;
         if (detections.length != 0){
             let label = detections.shift().description;
-            // detections.forEach(item => console.log(item.description));
             if(label) {
                 return label
             }
         }
-        else {
-            res.send({
-                statusCode: 400,
-                data: req,
-                message: "Failed: OCR unable to detect text"
-            })
-        };
     }
-    else {
-        res.send({
-            statusCode: 400,
-            data: req,
-            message: "Failed: No label to process"
-        })
-    };
-}
+    return null
+};
 
 const extractSugars = (req, res) => {
-    var productName = req.productName
     if(req.label) {
+        var sugarsData = {
+            productName: req.productName,
+            userID: req.userID
+        }
         console.log("Extracting sugars")
         let label = req.label.replaceAll("\n", " "); // replace new line char with space
         let ingredients = label.split(/[,,.,:,(,),[,\]]/); // split label string to list of words
@@ -69,28 +58,26 @@ const extractSugars = (req, res) => {
         });
         let sugarsList = Array.from(allSugars);
         if (sugarsList.length != 0) {
-            saveSugars(sugarsList, productName)
+            sugarsData['sugars'] = sugarsList;
+            // saveSugars(sugarsList, productName)
         }
         else {
-            saveSugars(["No sugars found"], productName)
+            sugarsData['sugars'] = ["No sugars detected"];
+            // saveSugars(["No sugars found"], productName)
         }
-             
+
+        saveSugars(sugarsData)
+
     }
     else {
         res.json({
             statusCode: 400,
             message: "Failed: Cannot extract sugars from label"
-        })
-    }
+        });
+    };
 };
 
-const saveSugars = (sugars, productName) => {
-    let sugarsData = {
-        userID: "abc123",
-        productName: productName,
-        productSugars: sugars
-    }
-
+const saveSugars = (sugarsData) => {
     Sugar.create(sugarsData, (err, result) => {
         if(result) {
             console.log("Sugars saved", result);

@@ -4,28 +4,38 @@ const util = require('util');
 const unlinkFile = util.promisify(fs.unlink);
 
 const processLabel = async (req, res) => {
-    var productName = req.productName;
-    if(req.imgPath) {
+    if (req.imgPath) {
         var imgPath = req.imgPath;
-        var label = await Service.visionService.extractLabel(imgPath);        
+        var labelData = {
+            productName: req.productName,
+            userID: req.userID
+        };
+        var label = await Service.visionService.extractLabel(imgPath);
         if(label) {
-            Service.visionService.extractSugars({label: label, productName: productName})
+            labelData['label'] = label;
+            Service.visionService.extractSugars(labelData);
+            res.json({
+                statusCode: 200,
+                message: "Success: Sugars saved"
+            })
         }
-        // Tidy uploads, remove image from temp server storage 
-        await unlinkFile(imgPath)
-        console.log("Image removed from server")
-        res.json({
-            statusCode: 200,
-            message: "Success: Sugars saved"
-        })
+        else {
+            res.send({
+                statusCode: 400,
+                message: "Failed: OCR unable to detect text"
+            });
+        };
     }
-    else {
+    else{
         res.json({
             statusCode: 400,
-            message: "Failed: No image path"
-        })
+            message: "Failed: No image provided"
+        });
     }
 
+    // Tidy uploads, remove image from temp server storage 
+    await unlinkFile(imgPath)
+    console.log("Image removed from server")
 }
 
 module.exports = {
