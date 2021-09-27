@@ -111,3 +111,13 @@ body {
 html,body{
   overflow-x: hidden; /* Overflow X prevents a gap between the navbar and the side of the page on some mobiles. */
 }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}

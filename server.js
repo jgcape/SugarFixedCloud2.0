@@ -11,7 +11,6 @@ const {
 const db = require('./mongodbConnect');
 
 const bodyParser = require('body-parser');
-// const mongoConnect = require("./mongoConnect.js") // Should we just stick with Mongoose and discard this?
 
 const app = express();
 
@@ -26,8 +25,8 @@ app.use(bodyParser.json());
 require('./services/userService')(passport);
 
 // EJS template engine
-app.use(expressLayouts);
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
 
 // Middleware
 // Express session initialization
