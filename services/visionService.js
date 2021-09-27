@@ -86,7 +86,7 @@ const extractSugars = (req, res) => {
 
 const saveSugars = (sugars, productName) => {
     let sugarsData = {
-        userID: "Passport Uuid",
+        userID: "abc123",
         productName: productName,
         productSugars: sugars
     }

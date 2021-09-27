@@ -28,11 +28,11 @@ router.post('/', upload.single('label'), (req, res) => {
     productName: req.body.product
   }
 	Controllers.visionController.processLabel(productData, res)
-})
+});
 
-router.post('/test', (req, res) => {
-  url = process.env.TEST_URL
-  Controllers.visionController.processLabel(url, res)
-})
+// router.post('/test', (req, res) => {
+//   url = process.env.TEST_URL
+//   Controllers.visionController.processLabel(url, res)
+// });
 
 module.exports = router;
