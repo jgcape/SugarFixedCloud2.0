@@ -22,10 +22,10 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 router.post('/', upload.single('label'), (req, res) => {
-	// console.log(req._passport)
 	let productData = {
     imgPath: req.file.path,
-    productName: req.body.product
+    productName: req.body.product,
+    userID: req._passport['session']['user']
   }
 	Controllers.visionController.processLabel(productData, res)
 });
