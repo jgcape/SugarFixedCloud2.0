@@ -1,6 +1,5 @@
 const createCards = (allResults) => {
     allResults.forEach(result => {
-        console.log(result)
         let item='<div class="card col l4">'+
       '<div class="card-content">'+
         '<span class="card-title grey-text text-darken-4">'+result.productName+'</span>'+
@@ -35,7 +34,8 @@ const getLatestResult = () => {
         type: 'GET',
         success: (result) => {
             console.log(result.data)
-            $('#result').html(result.data.sugars)
+            let list = result.data.sugars
+            $('#result').html(list.join())
         },
         error: (err) => {
             alert(err.message);
