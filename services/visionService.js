@@ -59,11 +59,9 @@ const extractSugars = (req, res) => {
         let sugarsList = Array.from(allSugars);
         if (sugarsList.length != 0) {
             sugarsData['sugars'] = sugarsList;
-            // saveSugars(sugarsList, productName)
         }
         else {
             sugarsData['sugars'] = ["No sugars detected"];
-            // saveSugars(["No sugars found"], productName)
         }
 
         saveSugars(sugarsData)

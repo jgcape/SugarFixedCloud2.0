@@ -26,8 +26,8 @@ router.post('/', upload.single('label'), (req, res) => {
     imgPath: req.file.path,
     productName: req.body.product,
     userID: req._passport['session']['user']
-  }
-	Controllers.visionController.processLabel(productData, res)
+  };
+	Controllers.visionController.processLabel(productData, res);
 });
 
 // router.post('/test', (req, res) => {
