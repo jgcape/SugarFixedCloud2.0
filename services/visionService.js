@@ -51,7 +51,16 @@ const extractSugars = (req, res) => {
         }
         console.log("Extracting sugars")
         let label = req.label.replaceAll("\n", " "); // replace new line char with space
-        let ingredients = label.split(/[,,.,:,(,),[,\]]/).map(s => s.trim().toLowerCase()); // split label string to list of words and trim whitespace
+        // let ingredients = label.split(/[,,.,:,(,),\[,\]]/).map(s => s.trim().toLowerCase());
+        let ingredients = []
+        let words = label.split(/[,,.,:,(,),\[,\]]/);
+        words.forEach((s) => {
+            s = s.replaceAll("[^a-zA-Z\s]", ""); //remove non alpha characters
+            s = s.trim() //remove trailing/starting whitespace
+            s = s.toLowerCase() //convert to lowercase
+            ingredients.push(s)
+        });
+        // split label string to list of words and trim whitespace
         var allSugars = new Set();
         SUGARS_DB.forEach((sugar) => {
             let filtered = filterSugars(ingredients, sugar);
