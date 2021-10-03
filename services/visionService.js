@@ -6,7 +6,7 @@ const Sugar = require('../models/Sugars');
 const SUGARS_DB = ['sugar','dextrose','fructose','galactose','glucose','lactose','maltose',
                 'sucrose','demerara','syrup','rapadura','dextrin','diastatic malt','maltol',
                 'muscovado','panela','maltodextrin','turbinado','sucanat','molasses','agave',
-                'high fructose','hfcs','honey','treacle','buttercream','caramel'];
+                'high fructose','hfcs','honey','treacle','buttercream','caramel', 'juice concentrate'];
 
 function filterSugars(arr, query) {
     return arr.filter(function(el) {
@@ -17,7 +17,9 @@ function filterSugars(arr, query) {
 function union(setA, setB) {
     let _union = new Set(setA)
     for (let elem of setB) {
-        _union.add(elem)
+        if (elem.includes("ingredients") == false) {
+            _union.add(elem)
+        }
     }
     return _union
 };
@@ -49,7 +51,7 @@ const extractSugars = (req, res) => {
         }
         console.log("Extracting sugars")
         let label = req.label.replaceAll("\n", " "); // replace new line char with space
-        let ingredients = label.split(/[,,.,:,(,),[,\]]/); // split label string to list of words
+        let ingredients = label.split(/[,,.,:,(,),[,\]]/).map(s => s.trim().toLowerCase()); // split label string to list of words and trim whitespace
         var allSugars = new Set();
         SUGARS_DB.forEach((sugar) => {
             let filtered = filterSugars(ingredients, sugar);
