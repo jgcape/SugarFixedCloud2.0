@@ -9,8 +9,11 @@ router.get('/', (req, res) => {
 });
 
 router.patch('/:objID', (req, res) => {
-    let objID = req.params
-    Controllers.sugarsController.updateProduct(req, res);
+    let updateData = {
+        objID: req.params.objID,
+        newName: req.body.newName
+    }
+    Controllers.sugarsController.updateProduct(updateData, res);
 });
 
 router.delete('/:objID', (req, res) => {

@@ -14,16 +14,16 @@ const getLatestSugar = async (req, res) => {
 
 const updateProductName = async (req, res) => {
     let objID = req.objID;
-    let newName = req.name;
+    let newName = req.newName;
     let updated = await Sugar.updateOne({_id: objID},{productName:newName}).exec();
-    console.log(updated)
-    return update
+    console.log("Product name updated");
+    return updated
 };
 
 const deleteByID = async (req, res) => {
     let objID = req;
     let deleted = await Sugar.deleteOne({_id: objID}).exec();
-    console.log(deleted)
+    console.log("Product deleted");
     return deleted
 };
 

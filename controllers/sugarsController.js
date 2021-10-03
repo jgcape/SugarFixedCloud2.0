@@ -46,7 +46,7 @@ const updateProduct= async (req, res) => {
     else {
         res.json({
             statusCode: 400,
-            message: "Failed: No product ID provided"
+            message: "Failed: No product ID or name provided"
         });
     }
 
