@@ -26,6 +26,58 @@ const getUserSugars = async (req, res) => {
 
 };
 
+const updateProduct= async (req, res) => {
+    if (req) {
+        let result = await Service.sugarsService.updateProductName(req);
+        if(result) {
+            res.json({
+                statusCode:200,
+                data: result,
+                message: "Sucess: product name updated"
+            });
+        }
+        else {
+            res.json({
+                statusCode:400,
+                message: "Failed: could not update product name"
+            });
+        }
+    }
+    else {
+        res.json({
+            statusCode: 400,
+            message: "Failed: No product ID provided"
+        });
+    }
+
+};
+
+const deleteProduct = async (req, res) => {
+    if (req) {
+        let result = await Service.sugarsService.deleteByID(req);
+        if(result) {
+            res.json({
+                statusCode:200,
+                data: result,
+                message: "Sucess: product deleted"
+            });
+        }
+        else {
+            res.json({
+                statusCode:400,
+                message: "Failed: could not delete product"
+            });
+        }
+    }
+    else {
+        res.json({
+            statusCode: 400,
+            message: "Failed: No product ID provided"
+        });
+    }
+
+};
+
 const getUserResult = async (req, res) => {
     if (req) {
         let result = await Service.sugarsService.getLatestSugar(req);
@@ -53,5 +105,5 @@ const getUserResult = async (req, res) => {
 };
 
 module.exports = {
-    getUserSugars, getUserResult
+    getUserSugars, getUserResult, updateProduct, deleteProduct
 }

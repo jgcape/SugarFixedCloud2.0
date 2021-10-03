@@ -12,6 +12,21 @@ const getLatestSugar = async (req, res) => {
     return sugars
 };
 
+const updateProductName = async (req, res) => {
+    let objID = req.objID;
+    let newName = req.name;
+    let updated = await Sugar.updateOne({_id: objID},{productName:newName}).exec();
+    console.log(updated)
+    return update
+};
+
+const deleteByID = async (req, res) => {
+    let objID = req;
+    let deleted = await Sugar.deleteOne({_id: objID}).exec();
+    console.log(deleted)
+    return deleted
+};
+
 module.exports = {
-    getAllSugars, getLatestSugar
+    getAllSugars, getLatestSugar, updateProductName, deleteByID
 }

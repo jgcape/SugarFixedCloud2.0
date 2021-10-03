@@ -1,18 +1,34 @@
 const createCards = (allResults) => {
     allResults.forEach(result => {
         let item='<div class="card col l4">'+
-      '<div class="card-content">'+
+      '<div id="' + result._id +'" class="card-content">'+
         '<span class="card-title grey-text text-darken-4">'+result.productName+'</span>'+
         '<p>'+result.date+'</p>'+
         '<p>'+result.sugars+'</p>'+
-        '<button id='+result._id+'class="btn waves-effect waves-red btn-large">Delete</button>'+
-        '<button id='+result._id+'class="btn waves-effect waves-red btn-large">Update</button>'+
+        '<button onclick=deleteProduct(this) class="btn waves-effect waves-red btn-large delete-btn">Delete</button>'+
+        '<button onclick=updateProduct(this) class="btn waves-effect waves-red btn-large update-btn">Update</button>'+
       '</div>'+
     '</div>'          
     
     $('#resultCards').append(item)
     });
 };
+
+const updateName = (obj) => {
+    var id = $(obj).parent().attr("id");
+}
+
+// const addClickFxn = () => {
+//     $('.update-btn').click(() => {
+//         var id = $(this).parent().attr("id");
+//         updateName(id);
+//     });
+
+//     $('.delete-btn').click(() => {
+//         var id = $(this).parent().attr("id");
+//         console.log($(this))
+//     });
+// };
 
 const getAllResults = () => {
     $.ajax({
@@ -43,9 +59,28 @@ const getLatestResult = () => {
     });
 };
 
+const deleteProduct = (obj) => {
+    var objID = $(obj).parent().attr("id");
+
+    $.ajax({
+        url: `/api/sugars/${objID}`,
+        type: 'DELETE',
+        success: (result) => {
+            alert("Product deleted");
+            location.reload();
+        },
+        error: (err) => {
+            alert(err.message);
+        }
+    });
+};
+
+
+
 
 $(document).ready(function(){
     console.log('Ready');
     getAllResults()
     getLatestResult()
+
   });
