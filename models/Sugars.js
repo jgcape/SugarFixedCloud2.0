@@ -13,7 +13,7 @@ const SugarSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    productSugars: {
+    sugars: {
         type: Array,
         required: true
     }
