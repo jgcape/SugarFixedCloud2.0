@@ -18,12 +18,12 @@ router.get('/result/:userID', (req, res) => {
 
 router.get('/:userID', (req, res) => {
     Sugar.find({userID: req.params.userID}).sort({date: -1}).exec(function(err, result) { 
-        // res.json({
-        //     statusCode:200,
-        //     data: result.productSugars,
-        //     message: "Sucess: retrieved latest result"
-        // });
-        console.log(result)
+        res.json({
+            statusCode:200,
+            data: result,
+            message: "Sucess: retrieved latest result"
+        });
+        // console.log(result)
     });
 });
 

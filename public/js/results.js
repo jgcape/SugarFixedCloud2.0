@@ -14,6 +14,21 @@ const getResult = (userID) => {
     })
 };
 
+const getAllResults = (userID) => {
+    console.log("Querying", userID);
+    $.ajax({
+        enctype:'multipart/form-data',
+        url: `/api/sugars/${userID}`,
+        type: 'GET',
+        success: (result) => {
+            console.log(result)
+            $('#result').html(result.data)
+        },
+        error: (err) => {
+            alert(err.message);
+        }
+    })
+};
 
 $(document).ready(function(){
     console.log('Ready');
