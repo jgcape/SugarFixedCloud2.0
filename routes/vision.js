@@ -22,17 +22,12 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 router.post('/', upload.single('label'), (req, res) => {
-	// console.log(req._passport)
 	let productData = {
     imgPath: req.file.path,
-    productName: req.body.product
-  }
-	Controllers.visionController.processLabel(productData, res)
+    productName: req.body.product,
+    userID: req._passport['session']['user']
+  };
+	Controllers.visionController.processLabel(productData, res);
 });
-
-// router.post('/test', (req, res) => {
-//   url = process.env.TEST_URL
-//   Controllers.visionController.processLabel(url, res)
-// });
 
 module.exports = router;
