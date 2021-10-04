@@ -54,6 +54,9 @@ body {
   font-family: Roboto;
 }
 
+blockquote {
+  border-left: 5px solid #bd8497;
+}
 .camera{  
   width: fit-content !important;
   margin-left: auto;
@@ -65,7 +68,8 @@ body {
 }
 
 .coloured {
-  color: #bd8497;
+  color: #bd8497 !important;
+  font-weight: bold;
 }
 
 .sugarpic{
@@ -81,23 +85,19 @@ body {
 .features{
   font-size: large;
 }
-.cameraButtons-button {
+.button {
+  color: #fff;
   background-color: #bd8497; 
   font-size: large;  
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.cameraButtons-button:hover {
-  background-color: #d6c9b0
+.button:hover {
+  background-color: #d6c9b0 !important;
 }
-.cameraButtons-button:focus{
+.button:focus{
   background-color: #bd8497;
 }
-
-.cameraButtons-button:visited{
-  background-color: #bd8497;
-}
-
 .video{
   width: 100%;    /*100% width enables responsive size*/  
 }
@@ -121,3 +121,35 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+  /* label color */
+  .input-field label {
+    color: #d6c9b0 !important;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #d6c9b0 !important;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #d6c9b0 !important;
+    box-shadow: 0 1px 0 0 #d6c9b0 !important;
+  }
+  /* valid color */
+  .input-field input[type=text].valid {
+    border-bottom: 1px solid #bd8497 !important;
+    box-shadow: 0 1px 0 0 #bd8497 !important;
+  }
+  /* invalid color */
+  .input-field input[type=text].invalid {
+    border-bottom: 1px solid #d6c9b0 !important;
+    box-shadow: 0 1px 0 0 #d6c9b0 !important;   
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #d6c9b0 !important;
+  }
+
+  .collapsible {
+    background-color: #fff;
+  }
