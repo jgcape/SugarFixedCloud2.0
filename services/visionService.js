@@ -96,7 +96,7 @@ const extractSugars = (req, res) => {
 const saveSugars = (sugarsData) => {
     Sugar.create(sugarsData, (err, result) => {
         if(result) {
-            console.log("Sugars saved", result);
+            console.log("Sugars saved", result._id);
         }
     });
 }
