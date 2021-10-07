@@ -9,7 +9,7 @@
                         <div>
                             <img class="sugarpic" src="/images/sugar.jpg">
                         </div>
-                        <h1 class="resultsHeader">Latest Result:</h1>
+                        <h2>Latest Result:</h2>
                         <p id=result class="results">You have no results to view!</p>
                         <button id="editLatest" class="waves-effect button btn-small"><i
                                 class="material-icons right"></i>Edit</button><br><br>
@@ -18,9 +18,11 @@
 
 
                     </div>
-                    <h5 class="center">Hi <%= user.name %>, here are your previous scan results:</h5>
-                    <div class="container">
-                        <div class="row" id="resultCards">
+                    <div class="resultsHeader">
+                        <h4 class="center">Hi <%= user.name %>, here are your previous scan results:</h4>
+                        <div class="container">
+                            <div class="row" id="resultCards">
+                            </div>
                         </div>
                     </div>
                     <br><br>

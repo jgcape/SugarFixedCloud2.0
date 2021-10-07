@@ -11,13 +11,10 @@
 .icon-block {
   padding: 0 15px;
 }
-.card-content {
-  padding: 15px;
-}
 
-
-h5{
+h4{
   font-weight: bold;
+  padding-top: 50px;
 }
 .brand-logo{
   width: fit-content;  /* fit-content prevented text from splitting over two lines on some mobile interfaces*/
@@ -64,6 +61,7 @@ body {
   font-family: Roboto;
 }
 
+
 blockquote {
   border-left: 5px solid #bd8497;
 }
@@ -84,13 +82,21 @@ blockquote {
   border-radius: 10px;
   background-color: white;  
   font-weight: bold;
-  font-size: 20px;
- 
+  font-size: 20px; 
 }
 
 
-.resultsHeader{
-  text-shadow:#bd8497;
+#resultCards{
+  margin-top: 50px;   
+  font-weight: bold;  
+  border: 10px solid white;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right:auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;   
+  
 }
 
 .coloured {

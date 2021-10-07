@@ -1,3 +1,4 @@
+//Global var latestID is included in all latest product functions.
 var latestID
 
 const createCards = (allResults) => {
@@ -132,7 +133,6 @@ const updateLatestProduct = () => {
 const deleteLatestProduct = () => {
     if (latestID) {
         $.ajax({
-
             url: `/api/sugars/${latestID}`,
             type: 'DELETE',
             success: (result) => {
@@ -167,16 +167,13 @@ $(document).ready(function () {
     console.log('Ready');
     getAllResults()
     getLatestResult()
-    $('#takePhoto').click(() => {
-        takePhoto()
-    });
+    
     $('#deleteLatest').click(() => {
         deleteLatestProduct()
     });
     $('#updateLatest').click(() => {
         updateLatestProduct()
     });
-
     $('#editLatest').click(() => {
         $('.modal').modal('open');
     });
