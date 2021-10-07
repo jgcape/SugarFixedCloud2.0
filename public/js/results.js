@@ -22,7 +22,7 @@ const createCards = (allResults) => {
         }
         date = new Date(result.date)
 
-        let item = '<div class="card medium col l4">' +
+        let item = '<div class="card col l4">' +
             '<div id="' + result._id + '" class="card-content">' +
             '<span class="card-title grey-text text-darken-4"><p>Product name: </p> ' + result.productName + '</span>' +
             '<p>Date scanned: ' + date.toDateString() + '</p><br>' +
