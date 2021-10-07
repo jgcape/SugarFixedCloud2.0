@@ -18,13 +18,22 @@ SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API
 
 ## How to use SugarFixed
 
-1. Press the OPEN CAMERA button.
+1. Log in or sign up. You must be logged in to use sugarfixed. 
 
-2. Take a photo of a label you would like to analyse.
+2. Press the OPEN CAMERA button.
 
-3. If you're happy with the photo press PROCESS LABEL, otherwise press RETAKE PHOTO.
+3. Take a photo of a label you would like to analyse.
 
-4. View the sugars present in your item.
+4. If you're happy with the photo press PROCESS LABEL, otherwise press RETAKE PHOTO. 
+Note* if the image is not high enough quality the optical character recognition will not work.
+
+5. View the sugars present in your item.
+
+6. Change the name of an entry or delete it by clicking on the edit button.
+
+7. Return to the home page to scan another label.
+
+8. Eat less sugar!
 
 ## Authors
 Julian Cape
