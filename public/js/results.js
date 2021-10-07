@@ -89,22 +89,29 @@ const getLatestResult = () => {
 
 const updateProduct = (obj) => {
     var objID = $(obj).parent().attr("id");
-    var patchData = {
-        newName: $(obj).siblings('#updateForm').val()
-    }
-    $.ajax({
-        contentType: 'application/json',
-        url: `/api/sugars/${objID}`,
-        data: JSON.stringify(patchData),
-        type: 'PATCH',
-        success: (result) => {
-            alert("Product updated");
-            location.reload();
-        },
-        error: (err) => {
-            alert(err.message);
+    var newName = $(obj).siblings('#updateForm').val()
+
+    if (newName != "") {
+        var patchData = {
+            newName: newName
         }
-    });
+        $.ajax({
+            contentType: 'application/json',
+            url: `/api/sugars/${objID}`,
+            data: JSON.stringify(patchData),
+            type: 'PATCH',
+            success: (result) => {
+                alert("Product updated");
+                location.reload();
+            },
+            error: (err) => {
+                alert(err.message);
+            }
+        });
+    }
+    else {
+        alert("Please enter a valid product name")
+    }
 };
 
 const updateLatestProduct = () => {
@@ -178,4 +185,6 @@ $(document).ready(function () {
         $('.modal').modal('open');
     });
 
+
 });
+
