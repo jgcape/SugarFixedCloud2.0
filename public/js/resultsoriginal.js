@@ -1,5 +1,3 @@
-var latestID
-
 const createCards = (allResults) => {
     allResults.slice(1).forEach(result => {
 
@@ -33,7 +31,7 @@ const createCards = (allResults) => {
             '<input id="updateForm" class = "input-field" type = "text" placeholder="Enter new product name.">Current name: ' + result.productName + '</input><br>' +
             '<button onclick=updateProduct(this) class="btn waves-effect button waves-white btn-small update-btn">Update name</button>' +
             '<button onclick=deleteProduct(this) class="btn waves-effect button waves-white btn-small delete-btn"><i class="material-icons right">delete</i>Delete</button><br>' +
-
+            
 
             '</div>' +
             '</div>'
@@ -61,7 +59,6 @@ const getLatestResult = () => {
         url: '/api/sugars/latest/',
         type: 'GET',
         success: (result) => {
-            latestID = result.data._id
 
             let list = result.data.sugars
             if (result.data.productName == "") {
@@ -78,6 +75,7 @@ const getLatestResult = () => {
                 });
                 str += '</ol><br>';
             }
+            str += '<br><button onclick=deleteLatestProduct("' + result.data._id + '") class="btn waves-effect waves-white button btn-small delete-btn"><i class="material-icons right">delete</i>Delete result</button>'
             $('#result').html(str);
         },
         error: (err) => {
@@ -106,45 +104,21 @@ const updateProduct = (obj) => {
     });
 };
 
-const updateLatestProduct = () => {
-    if (latestID) {
-        var patchData = {
-            newName: $('#productName').val()
+const deleteLatestProduct = (objID) => {
+
+    $.ajax({
+        url: `/api/sugars/${objID}`,
+        type: 'DELETE',
+        success: (result) => {
+            alert("Product deleted");
+            location.reload();
+        },
+        error: (err) => {
+            alert(err.message);
         }
-        $.ajax({
-            contentType: 'application/json',
-            url: `/api/sugars/${latestID}`,
-            data: JSON.stringify(patchData),
-            type: 'PATCH',
-            success: (result) => {
-                alert("Product updated");
-                location.reload();
-            },
-            error: (err) => {
-                alert(err.message);
-            }
-        });
-    }
+    });
 };
 
-
-
-const deleteLatestProduct = () => {
-    if (latestID) {
-        $.ajax({
-
-            url: `/api/sugars/${latestID}`,
-            type: 'DELETE',
-            success: (result) => {
-                alert("Product deleted");
-                location.reload();
-            },
-            error: (err) => {
-                alert(err.message);
-            }
-        });
-    }
-};
 
 const deleteProduct = (obj) => {
     var objID = $(obj).parent().attr("id");
@@ -163,22 +137,9 @@ const deleteProduct = (obj) => {
 };
 
 $(document).ready(function () {
-    $('.modal').modal();
+    
     console.log('Ready');
     getAllResults()
     getLatestResult()
-    $('#takePhoto').click(() => {
-        takePhoto()
-    });
-    $('#deleteLatest').click(() => {
-        deleteLatestProduct()
-    });
-    $('#updateLatest').click(() => {
-        updateLatestProduct()
-    });
-
-    $('#editLatest').click(() => {
-        $('.modal').modal('open');
-    });
 
 });
