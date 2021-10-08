@@ -20,7 +20,7 @@ const processLabel = async (req, res) => {
             })
         }
         else {
-            res.send({
+            res.json({
                 statusCode: 400,
                 message: "Failed: OCR unable to detect text"
             });
@@ -33,9 +33,12 @@ const processLabel = async (req, res) => {
         });
     }
 
-    // Tidy uploads, remove image from temp server storage 
-    await unlinkFile(imgPath)
-    console.log("Image removed from server")
+    // Tidy uploads, remove image from temp server storage
+    if (imgPath != process.env.TEST_IMG) {
+        await unlinkFile(imgPath)
+        console.log("Image removed from server")
+    } 
+
 }
 
 module.exports = {

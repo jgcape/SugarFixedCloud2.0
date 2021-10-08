@@ -5,26 +5,24 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 
-    <title>SugarFixed Home Page</title>
-    <meta property="og:title" content="SugarFixed home page">
+    <title>SugarFixed</title>
+    <meta property="og:title" content="SugarFixed Label Scanning">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Home page for food label reading sugar identification application.">
+    <meta property="og:description" content="Website for food label reading sugar identification application.">
 
     <!-- Compiled and minified CSS -->
+    <!-- jQuery (necessary for Materialize and other scripts) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!-- Materialze-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="/css/styles.css" type="text/css" rel="stylesheet" media="screen,projection" /> -->
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"async defer></script>
-    
+   
     <!--Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous" async defer></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <link rel="icon" href="/images/camera-icon.png" type="image/x-icon">
     <link rel="shortcut icon" href="/images/camera-icon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,10 +33,8 @@
     <link href="css/styles.css" rel="stylesheet">
 
     <!-- socket IO Served by the server -->
-    <!-- <script src="/socket.io/socket.io.js"></script> -->
-
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" async defer></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/socket.js" async defer></script>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" async defer></script>
@@ -56,6 +52,7 @@
         <div class="footer-copyright">
             <div class="container" id="copyright">
                 © 2021 SugarFixed
+                <span id="totalUserCount" class="grey-text text-lighten-4 right"></span>
             </div>
         </div>
     </footer>

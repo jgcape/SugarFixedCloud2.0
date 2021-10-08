@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const vision = require('@google-cloud/vision');
 
 // Load Sugar model
@@ -28,8 +30,14 @@ const extractLabel = async (req, res) => {
     let img_path = req
     if(img_path) {
         // Create a client
-        const client = new vision.ImageAnnotatorClient(credentials=process.env.GOOGLE_APPLICATION_CREDENTIALS);
-        console.log("Client created")
+        const client = new vision.ImageAnnotatorClient({credentials: {
+                                                            client_email: process.env.GCP_EMAIL,
+                                                            private_key: process.env.GCP_KEY
+                                                        },
+                                                        projectId: process.env.PROJECT_ID
+                                                    });
+
+        console.log("GCP client connected")
         // Performs text detection on the local file
         const [result] = await client.textDetection(img_path);
         const detections = result.textAnnotations;
@@ -50,12 +58,11 @@ const extractSugars = (req, res) => {
             userID: req.userID
         }
         console.log("Extracting sugars")
-        let label = req.label.replaceAll("\n", " "); // replace new line char with space
-        // let ingredients = label.split(/[,,.,:,(,),\[,\]]/).map(s => s.trim().toLowerCase());
+        let label = req.label.replace(/\n/g, " "); // replace new line char with space
         let ingredients = []
         let words = label.split(/[,,.,:,(,),\[,\]]/);
         words.forEach((s) => {
-            s = s.replaceAll("[^a-zA-Z\s]", ""); //remove non alpha characters
+            s = s.replace(/[^a-zA-Z\s]/g, ""); //remove non alpha characters
             s = s.trim() //remove trailing/starting whitespace
             s = s.toLowerCase() //convert to lowercase
             ingredients.push(s)
@@ -89,7 +96,7 @@ const extractSugars = (req, res) => {
 const saveSugars = (sugarsData) => {
     Sugar.create(sugarsData, (err, result) => {
         if(result) {
-            console.log("Sugars saved", result);
+            console.log("Sugars saved", result._id);
         }
     });
 }

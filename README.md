@@ -2,34 +2,71 @@
 
 SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API to identify how many of the 50+ different types of sugar are hiding in your food!
 
-# Dependencies
-* nodemon
+## Dependencies
+* All dependencies can be installed using the command `npm install` prior to running
+* To enable the development server (i.e. `npm run dev`), first install nodemon globally using the command
+
+    `npm install -g nodemon`
 
 ## Run
-1. Install package.json dependencies
+1. Clone repo 
+    
+    https://github.com/athletedecoded/sugarfixed.git
 
-    npm install    
+2. Open locally and copy .env file to root path
 
-2. Serve app at localhost:8080 with nodemon (only dev dependency)
+3. Install package.json dependencies
 
-    npm run dev
+    `npm install`    
 
-3. Navigate to [http://localhost:8080](localhost:8080)
+4. Serve app at with node using
+
+    `npm start`
+
+    Alternatively, serve with nodemon using 
+    
+    `npm run dev`
+
+    NB: In the case the defaut port is in use, update the .env (line 4) or server.js (line 63) PORT variable to an available port (eg 3030,5000,5050 etc)
+
+5. Successful connection is indicated by the following terminal messages:
+
+    `Listening on port  8080`
+
+    `Database connection successful!`
+
+6. Navigate to 
+
+    [https://localhost:8080](https://localhost:8080)
+
+## Use deployed version for mobile testing
+
+Run this app on your mobile browser and utilise your mobile camera using the following link:
+
+    https://sugarfixed.herokuapp.com
 
 ## How to use SugarFixed
 
-1. Press the OPEN CAMERA button.
+1. Log in or sign up. You must be logged in to use sugarfixed. 
 
-2. Take a photo of a label you would like to analyse.
+2. Press the OPEN CAMERA button.
 
-3. If you're happy with the photo press PROCESS LABEL, otherwise press RETAKE PHOTO.
+3. Take a photo of a label you would like to analyse.
 
-4. View the sugars present in your item.
+4. If you're happy with the photo press PROCESS LABEL, otherwise press RETAKE PHOTO. 
+
+    **Note** if the image is not high enough quality the optical character recognition will not work.
+
+5. You will be redirected to https://localhost:8080/result to view the sugars present in your product.
+
+6. Change the name of an entry or delete it by clicking on the edit button.
+
+7. Return to the home page to scan another label.
+
+8. Eat less sugar!
 
 ## Authors
-Julian Cape
-Kahlia Hogg
-Rahul Samanta
+Julian Cape | Kahlia Hogg | Rahul Samanta
 
 ## Licence
 MIT 2021
