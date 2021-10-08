@@ -40,7 +40,7 @@ SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API
 
 Run this app on your mobile browser and utilise your mobile camera using the following link:
 
-    https://sugarfixed.herokuapp.com
+   https://sugarfixed.herokuapp.com
 
 ## How to use SugarFixed
 
