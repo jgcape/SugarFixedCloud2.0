@@ -58,7 +58,8 @@ const extractSugars = (req, res) => {
             userID: req.userID
         }
         console.log("Extracting sugars")
-        let label = req.label.replaceAll("\n", " "); // replace new line char with space
+        // let label = req.label.replaceAll("\n", " "); // replace new line char with space
+        let label = req.label.replace(/\n/g, " "); // replace new line char with space
         let ingredients = []
         let words = label.split(/[,,.,:,(,),\[,\]]/);
         words.forEach((s) => {

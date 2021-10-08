@@ -24,7 +24,7 @@ SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API
     
     npm run dev
 
-    NB: In the case the defaut port is in use, update the .env PORT variable (line 4) to an available port (eg 3030,5000,5050 etc)
+    NB: In the case the defaut port is in use, update the .env (line 4) or server.js (line 63) PORT variable to an available port (eg 3030,5000,5050 etc)
 
 5. Successful connection is indicated by the following terminal messages:
 
