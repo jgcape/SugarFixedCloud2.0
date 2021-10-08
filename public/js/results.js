@@ -52,7 +52,7 @@ const getAllResults = () => {
             createCards(result.data)
         },
         error: (err) => {
-            alert(err.message);
+            M.toast({ html: err.message });
         }
     });
 };
@@ -82,7 +82,7 @@ const getLatestResult = () => {
             $('#result').html(str);
         },
         error: (err) => {
-            alert(err.message);
+            M.toast({ html: err.message });
         }
     });
 };
@@ -101,16 +101,16 @@ const updateProduct = (obj) => {
             data: JSON.stringify(patchData),
             type: 'PATCH',
             success: (result) => {
-                alert("Product updated");
+                M.toast({ html: "Product updated" });
                 location.reload();
             },
             error: (err) => {
-                alert(err.message);
+                M.toast({ html: err.message });
             }
         });
     }
     else {
-        alert("Please enter a valid product name")
+        M.toast({ html: "Please enter a valid product name" });
     }
 };
 
@@ -125,17 +125,15 @@ const updateLatestProduct = () => {
             data: JSON.stringify(patchData),
             type: 'PATCH',
             success: (result) => {
-                alert("Product updated");
+                M.toast({ html: "Product updated" });
                 location.reload();
             },
             error: (err) => {
-                alert(err.message);
+                M.toast({ html: err.message });
             }
         });
     }
 };
-
-
 
 const deleteLatestProduct = () => {
     if (latestID) {
@@ -143,11 +141,11 @@ const deleteLatestProduct = () => {
             url: `/api/sugars/${latestID}`,
             type: 'DELETE',
             success: (result) => {
-                alert("Product deleted");
+                M.toast({ html: "Product deleted" });
                 location.reload();
             },
             error: (err) => {
-                alert(err.message);
+                M.toast({ html: err.message });
             }
         });
     }
@@ -160,11 +158,11 @@ const deleteProduct = (obj) => {
         url: `/api/sugars/${objID}`,
         type: 'DELETE',
         success: (result) => {
-            alert("Product deleted");
+            M.toast({ html: "Product deleted" });
             location.reload();
         },
         error: (err) => {
-            alert(err.message);
+            M.toast({ html: err.message });
         }
     });
 };
@@ -184,7 +182,4 @@ $(document).ready(function () {
     $('#editLatest').click(() => {
         $('.modal').modal('open');
     });
-
-
 });
-

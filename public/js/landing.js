@@ -57,12 +57,12 @@ const uploadImg = (formData) => {
                 location.href = '/result';
             }
             else {
-                alert(result.message)
+                M.toast({ html: result.message });
                 location.reload();
             }
         },
         error: (err) => {
-            alert(err.message);
+            M.toast({ html: err.message });
         }
     })
 }
@@ -80,9 +80,6 @@ const submitImg = (productName) => {
 
 $(function () {
     $('.modal').modal();
-    $('#takePhoto').click(() => {
-        takePhoto()
-    });
     $('#openCamera').click(() => {
         openCamera()
     });
@@ -90,7 +87,7 @@ $(function () {
     $('#formSubmit').click(() => {
         var productName = $('#productName').val();
         if (productName == '') {
-            alert("Please provide a product name")
+            M.toast({ html: "Please provide a product name to continue..." });
         }
         else {
             submitImg(productName);
