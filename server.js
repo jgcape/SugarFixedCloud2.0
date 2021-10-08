@@ -36,6 +36,19 @@ app.use(session({
     resave: true
 }));
 
+// Socket to show connected user count
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+let totalUsers = 0;
+io.on('connection', (socket) => {
+    totalUsers += 1;
+    io.emit('users', totalUsers);
+    socket.on('disconnect', () => {
+        totalUsers -= 1;
+        io.emit('users', totalUsers);
+    });
+});
+
 // Passport middleware and auth service
 app.use(passport.initialize());
 app.use(passport.session());
@@ -50,9 +63,6 @@ app.use(function (req, res, next) {
     res.locals.user = req.user;
     next();
 });
-
-const http = require('http').createServer(app);
-const io = require('socket.io')(http);
 
 // Routes
 app.use('/', require('./routes/index.js'));

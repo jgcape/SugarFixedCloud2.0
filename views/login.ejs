@@ -81,7 +81,7 @@
                                                 <div class="row">
                                                     <div class="input-field col s12">
                                                         <i class="material-icons prefix coloured">password</i>
-                                                        <input required type="text" id="password" name="password"
+                                                        <input required type="password" id="password" name="password"
                                                             minlength="8" class="validate">
                                                         <span class="helper-text" data-error="Password is too short"
                                                             data-success="">Enter your account password</span>
@@ -95,10 +95,10 @@
                                             </div>
                                             <div class="card-action">
                                                 <p>Don't have an account?</p>
-                                                <button href="/register"
-                                                    class="btn waves-effect waves-light button btn-small" type="submit"
-                                                    name="login">SIGN UP
+                                                <button class="btn waves-effect waves-light button btn-small" name="login"
+                                                onclick="window.location.href='/register';">SIGN UP
                                                     <i class="material-icons right">face</i>
+                                                </button>
                                             </div>
                                         </form>
                                     </div>

@@ -35,6 +35,7 @@
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.2",
+    "http": "*",
     "mime-types": "^2.1.32",
     "mocha": "^9.1.2",
     "mongodb": "^4.1.0",
@@ -52,6 +53,7 @@
     "uuidv4": "^6.2.12"
   },
   "devDependencies": {
+    "http": "*",
     "nodemon": "*",
     "mime-types": "^2.1.32",
     "mongodb": "^4.1.0",
