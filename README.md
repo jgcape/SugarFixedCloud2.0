@@ -3,7 +3,10 @@
 SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API to identify how many of the 50+ different types of sugar are hiding in your food!
 
 # Dependencies
-* nodemon
+* All dependencies can be installed using the command `npm install` prior to running
+* To enable the development server (i.e. `npm run dev`), first install nodemon globally using the command
+
+    npm install -g nodemon
 
 ## Run
 1. Clone repo 
