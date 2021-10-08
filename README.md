@@ -19,7 +19,7 @@ SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API
 
     `npm install`    
 
-4. Serve app at with node using
+4. Serve app with node using
 
     `npm start`
 
