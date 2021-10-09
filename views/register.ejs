@@ -25,7 +25,8 @@
                                             <input required type="text" id="email" name="email" class="validate"
                                                 value="<%= typeof email != 'undefined' ? email : '' %>">
                                             <span class="helper-text" data-error="Invalid Email"
-                                                data-success="Awesome! This becomes your login ID">Enter a valid email</span>
+                                                data-success="Awesome! This becomes your login ID">Enter a valid
+                                                email</span>
                                             <label for="email">Email</label>
                                         </div>
                                     </div>
@@ -33,9 +34,11 @@
                                         <div class="input-field col s12">
                                             <i class="material-icons coloured prefix">password</i>
                                             <input required type="password" id="password" name="password" minlength="8"
-                                                class="validate" value="<%= typeof password != 'undefined' ? password : '' %>">
+                                                class="validate"
+                                                value="<%= typeof password != 'undefined' ? password : '' %>">
                                             <span class="helper-text" data-error="Password is too short"
-                                                data-success="Great! This becomes your login password">Enter a password with at
+                                                data-success="Great! This becomes your login password">Enter a password
+                                                with at
                                                 least 8 characters</span>
                                             <label for="password">Create Password</label>
                                         </div>
@@ -43,27 +46,29 @@
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <i class="material-icons coloured prefix">password</i>
-                                            <input required type="password" id="password2" name="password2" minlength="8"
-                                                class="validate"
+                                            <input required type="password" id="password2" name="password2"
+                                                minlength="8" class="validate"
                                                 value="<%= typeof password2 != 'undefined' ? password2 : '' %>">
-                                            <span class="helper-text" data-error="Password is too short" data-success="">Enter
+                                            <span class="helper-text" data-error="Password is too short"
+                                                data-success="">Enter
                                                 the same password again to confirm</span>
                                             <label for="password2">Confirm Password</label>
                                         </div>
                                     </div>
-                                    <button class="btn waves-effect waves-light button" type="submit" name="register">Create
+                                    <button class="btn waves-effect waves-light button" type="submit"
+                                        name="register">Create
                                         <i class="material-icons right">face</i>
                                     </button>
                                 </div>
-                                <div class="card-action">
-                                    <p>Already have an account?</p>
-                                    
-                                    <button class="btn waves-effect waves-light button btn-small" name="login" 
-                                    onclick="window.location.href='/login';">log in
-                                        <i class="material-icons right">login</i>
-                                    </button>
-                                </div>
                             </form>
+                            <div class="card-action">
+                                <p>Already have an account?</p>
+
+                                <a class="btn waves-effect waves-light button btn-small" href ='/login'>log in
+                                    <i class="material-icons right">login</i>
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
