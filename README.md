@@ -2,8 +2,11 @@
 
 SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API to identify how many of the 50+ different types of sugar are hiding in your food!
 
-# Dependencies
-* nodemon
+## Dependencies
+* All dependencies can be installed using the command `npm install` prior to running
+* To enable the development server (i.e. `npm run dev`), first install nodemon globally using the command
+
+    `npm install -g nodemon`
 
 ## Run
 1. Clone repo 
@@ -14,27 +17,33 @@ SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API
 
 3. Install package.json dependencies
 
-    npm install    
+    `npm install`    
 
-4. Serve app at with node using
+4. Serve app with node using
 
-    npm start
+    `npm start`
 
     Alternatively, serve with nodemon using 
     
-    npm run dev
+    `npm run dev`
 
-    NB: In the case the defaut port is in use, update the .env PORT variable (line 4) to an available port (eg 3030,5000,5050 etc)
+    NB: In the case the defaut port is in use, update the .env (line 4) or server.js (line 63) PORT variable to an available port (eg 3030,5000,5050 etc)
 
 5. Successful connection is indicated by the following terminal messages:
 
-    Listening on port  8080
+    `Listening on port  8080`
 
-    Database connection successful!
+    `Database connection successful!`
 
 6. Navigate to 
 
-    [http://localhost:8080](localhost:8080)
+    [https://localhost:8080](https://localhost:8080)
+
+## Use deployed version for mobile testing
+
+Run this app on your mobile browser and utilise your mobile camera using the following link:
+
+    https://sugarfixed.herokuapp.com
 
 ## How to use SugarFixed
 
@@ -48,7 +57,7 @@ SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API
 
     **Note** if the image is not high enough quality the optical character recognition will not work.
 
-5. You will be redirected to http://localhost:8080/result to view the sugars present in your product.
+5. You will be redirected to https://localhost:8080/result to view the sugars present in your product.
 
 6. Change the name of an entry or delete it by clicking on the edit button.
 

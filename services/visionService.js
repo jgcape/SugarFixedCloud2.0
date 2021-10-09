@@ -58,11 +58,11 @@ const extractSugars = (req, res) => {
             userID: req.userID
         }
         console.log("Extracting sugars")
-        let label = req.label.replaceAll("\n", " "); // replace new line char with space
+        let label = req.label.replace(/\n/g, " "); // replace new line char with space
         let ingredients = []
         let words = label.split(/[,,.,:,(,),\[,\]]/);
         words.forEach((s) => {
-            s = s.replaceAll("[^a-zA-Z\s]", ""); //remove non alpha characters
+            s = s.replace(/[^a-zA-Z\s]/g, ""); //remove non alpha characters
             s = s.trim() //remove trailing/starting whitespace
             s = s.toLowerCase() //convert to lowercase
             ingredients.push(s)
