@@ -14,10 +14,9 @@
                             </div>
                             <div>
                                 <button id="openCamera" class="waves-effect button btn-large"><i id='openCameraIcon'
-                                        class="material-icons right">power_settings_new</i>Open
-                                    Camera</button>
+                                        class="material-icons right">power_settings_new</i><span id='cameraBtnText'>Open Camera</span></button>
                                 <button id="takePhoto" class="waves-effect button btn-large"><i
-                                        class="material-icons right">camera</i>Scan Label</button>
+                                        id = "scanIcon" class="material-icons right">camera</i><span id="scanText">Scan Label</span></button>
                             </div>
                         </div>
                         <h5 class="header col s12 light">Welcome to SugarFixed! <br><br> Take a photo of an ingredients
@@ -67,7 +66,7 @@
             </div>
         </div>
 
-        <div id="modal1" class="modal modal-fixed-footer">
+        <div id="modal1" class="modal">
             <div class="row modal-content">
                 <form class="col s12">
                     <p>Enter a name for your product and we'll add it to your database.</p>
