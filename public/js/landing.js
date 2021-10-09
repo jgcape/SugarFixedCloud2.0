@@ -1,8 +1,9 @@
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext("2d");
 const video = document.getElementById('video');
-const scanBtn = document.getElementById('takePhoto');
-const openCameraBtn = document.getElementById('openCamera');
+const scanText = document.getElementById('scanText');
+const scanIcon = document.getElementById('scanIcon');
+const cameraBtnText = document.getElementById('cameraBtnText');
 const openCameraIcon = document.getElementById('openCameraIcon');
 const captureOptions = {
     audio: false,
@@ -14,7 +15,8 @@ var counter = 0;
 //Requests camera access from user and begins video stream. 
 const openCamera = () => {      
     counter = 1;
-    scanBtn.innerText = "scan label";
+    scanIcon.innerText = 'camera';
+    scanText.innerText = "scan label";
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
         navigator.mediaDevices.getUserMedia(captureOptions).then(function (stream) {
@@ -29,10 +31,10 @@ const takePhoto = () => {
     if (counter != 0) {
         if (counter == 1) {
             counter = 2;
-            openCameraBtn.innerText = "retake photo";
-            openCameraIcon.innerText = "camera";
-
-            scanBtn.innerText = "process label";
+            cameraBtnText.innerText = "retake photo";
+            openCameraIcon.innerText = "cached";
+            scanIcon.innerText = "file_upload";
+            scanText.innerText = "process label";
             canvas.height = $('video').innerHeight();
             canvas.width = $('video').innerWidth();
             context.drawImage(video, 0, 0, canvas.width, canvas.height);

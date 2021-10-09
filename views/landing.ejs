@@ -11,18 +11,21 @@
                         <canvas class="canvas" id="canvas"></canvas>
                         <video class="video" id="video" poster="/images/camera.JPG" autoplay></video>
 
-                    </div>
-                    <div>
-                        <button id="openCamera" class="waves-effect button btn-large"><i id='openCameraIcon'
-                                class="material-icons right">power_settings_new</i>Open
-                            Camera</button>
-                        <button id="takePhoto" class="waves-effect button btn-large"><i
-                                class="material-icons right">camera</i>Scan Label</button>
-                    </div>
-                </div>
-                <h5 class="header col s12 light">Welcome to SugarFixed! <br><br> Take a photo of an ingredients
-                    list and SugarFixed will tell you
-                    what sugars are hiding in your food. Sign up or log in to get started.</h5>
+
+                            </div>
+                            <div>
+                                <button id="openCamera" class="waves-effect button btn-large"><i id='openCameraIcon'
+                                        class="material-icons right">power_settings_new</i><span id='cameraBtnText'>Open Camera</span></button>
+                                <button id="takePhoto" class="waves-effect button btn-large"><i
+                                        id = "scanIcon" class="material-icons right">camera</i><span id="scanText">Scan Label</span></button>
+                            </div>
+                        </div>
+                        <h5 class="header col s12 light">Welcome to SugarFixed! <br><br> Take a photo of an ingredients
+                            list and SugarFixed will tell you
+                            what sugars are hiding in your food. Sign up or log in to get started.</h5>
+
+
+                   
             </div>
             <br><br>
         </div>
@@ -67,17 +70,19 @@
     </div>
 </div>
 
-<div id="modal1" class="modal modal-fixed-footer">
-    <div class="row modal-content">
-        <form class="col s12">
-            <p>Enter a name for your product and we'll add it to your database.</p>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Product name" id="productName" type="text" class="validate">
-                    <!-- <input placeholder="Product name" id="productName"> -->
-                    <label for="productName">Product Name</label>
-                </div>
-            </div>
+
+        <div id="modal1" class="modal">
+            <div class="row modal-content">
+                <form class="col s12">
+                    <p>Enter a name for your product and we'll add it to your database.</p>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="Product name" id="productName" type="text" class="validate">
+                            <!-- <input placeholder="Product name" id="productName"> -->
+                            <label for="productName">Product Name</label>
+                        </div>
+                    </div>
+
 
             <div class="row">
                 <div class="input-field col s12 center-align">
