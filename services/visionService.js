@@ -30,12 +30,7 @@ const extractLabel = async (req, res) => {
     let img_path = req
     if(img_path) {
         // Create a client
-        const client = new vision.ImageAnnotatorClient({credentials: {
-                                                            client_email: process.env.GCP_EMAIL,
-                                                            private_key: process.env.GCP_KEY
-                                                        },
-                                                        projectId: process.env.PROJECT_ID
-                                                    });
+        const client = new vision.ImageAnnotatorClient(credentials=process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
         console.log("GCP client connected")
         // Performs text detection on the local file
