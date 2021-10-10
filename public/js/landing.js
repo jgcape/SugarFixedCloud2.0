@@ -96,3 +96,24 @@ $(function () {
         }
     });
 });
+
+function calcRoute(e) {
+
+    var productName = $('#productName').val();
+    if (productName == '') {
+        M.toast({ html: "Please provide a product name to continue..." });
+    }
+    else {
+        submitImg(productName);
+    }  
+    
+    e.preventDefault();
+}
+
+(function() {
+    var form = document.getElementsByTagName('form')[0];    
+    form.addEventListener('submit', calcRoute);
+    
+
+
+}());
