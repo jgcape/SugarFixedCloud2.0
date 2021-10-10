@@ -13,7 +13,7 @@ SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API
     
     https://github.com/athletedecoded/sugarfixed.git
 
-2. Open locally and copy .env file to root path
+2. Open locally and copy .env file and key.json file to root path
 
 3. Install package.json dependencies
 
