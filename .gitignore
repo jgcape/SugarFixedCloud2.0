@@ -70,7 +70,6 @@ typings/
 
 # dotenv environment variables file
 key.json
-.env
 .env.test
 package-lock.json
 
