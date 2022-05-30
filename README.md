@@ -1,6 +1,9 @@
 # About SugarFixed
 
-SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API to identify how many of the 50+ different types of sugar are hiding in your food!
+SugarFixed uses Optical Character Recognition (OCR) throug the Google Cloud Vision API to identify how many of the 50+ different types of sugar are hiding in your food!
+
+SugarFixedCloud 2.0 was cloned from the original SugarFixed 'https://github.com/athletedecoded/sugarfixed.git'to enable extra work to be carried out for 
+this project to be deployed on IBMs cloud platform for SIT737. 
 
 ## Dependencies
 * All dependencies can be installed using the command `npm install` prior to running
@@ -11,7 +14,7 @@ SugarFixed uses Optical Character Recognition (OCR) throug the Google Vision API
 ## Run
 1. Clone repo 
     
-    https://github.com/athletedecoded/sugarfixed.git
+    https://github.com/jgcape/SugarFixedCloud2.0.git
 
 2. Open locally and copy .env file and key.json file to root path
 

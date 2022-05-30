@@ -1,6 +1,6 @@
 {
-  "name": "sugarfixed",
-  "version": "1.0.0",
+  "name": "sugarfixedcloud",
+  "version": "2.0.0",
   "description": "App to identify how many sugars from a photo of an ingredient list",
   "main": "server.js",
   "scripts": {
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/athletedecoded/sugarfixed.git"
+    "url": "git+https://github.com/jgcape/SugarFixedCloud2.0"
   },
   "author": "Kahlia Hogg, Julian Cape, Rahul Samanta",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/athletedecoded/sugarfixed/issues"
+    "url": "https://github.com/jgcape/SugarFixedCloud2.0/issues"
   },
-  "homepage": "https://github.com/athletedecoded/sugarfixed#readme",
+  "homepage": "https://github.com/jgcape/SugarFixedCloud2.0#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@google-cloud/secret-manager": "^3.10.1",
